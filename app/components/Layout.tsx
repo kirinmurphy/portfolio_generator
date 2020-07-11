@@ -1,8 +1,8 @@
 import React from 'react';
 
-import { globalVariables } from './css/cssVariables';
 import { cssDefaults } from './css/cssDefaults';
 import { cssLinks } from './css/cssLinks';
+import { globalVariables } from '../portfolioData/cssVariables';
 import { cssProjectOverrides } from '../portfolioData/cssProjectOverrides';
 
 interface LayoutComponentProps {

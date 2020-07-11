@@ -2,7 +2,8 @@ import React from 'react';
 
 import { SkillsetFeaturedProjectProps } from '../types/portfolio';
 
-import { breakpointMobile } from '../css/cssVariables';
+import { breakpointMobile } from '../../portfolioData/cssVariables';
+
 import { Timeframe } from '../widgets/Timeframe';
 import { getProjectPath } from '../project_item/helperProjectId';
 

@@ -34,9 +34,7 @@ export const ProjectWorkSummary: React.FC<Props> = ({ project }) => {
 
         </h3>
 
-        <section className="tagline">
-          <Markdownizer source={tagline} />
-        </section>
+        <section className="tagline">{tagline}</section>
       </a>
 
       <style jsx>{`

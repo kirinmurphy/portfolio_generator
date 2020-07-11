@@ -4,7 +4,7 @@ import {
   breakpointMobile, 
   breakpointMiddle, 
   breakpointMaxWidth 
-} from '../components/css/cssVariables';
+} from './cssVariables';
 
 export const cssProjectOverrides = css.global`
 

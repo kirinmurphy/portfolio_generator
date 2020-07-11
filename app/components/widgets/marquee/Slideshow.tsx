@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 
-import { breakpointMaxWidth } from '../../css/cssVariables';
+import { breakpointMaxWidth } from '../../../portfolioData/cssVariables';
 
 import { ExpandoClicker } from './ExpandoClicker';
 

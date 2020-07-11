@@ -1,6 +1,6 @@
 import css from 'styled-jsx/css';
 
-import { breakpointMaxWidth } from '../css/cssVariables';
+import { breakpointMaxWidth } from '../../portfolioData/cssVariables';
 
 export const cssProjectDetail = css`        
   .project-wrapper {

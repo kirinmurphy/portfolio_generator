@@ -2,7 +2,8 @@ import React from 'react';
 
 import { SkillsetProps } from '../types/portfolio';
 
-import { breakpointMobile, breakpointDesktop } from '../css/cssVariables';
+import { breakpointMobile, breakpointDesktop } from '../../portfolioData/cssVariables';
+
 import { Markdownizer } from '../widgets/Markdownizer';
 import { SkillsetFeaturedProject } from './SkillsetFeaturedProject';
 

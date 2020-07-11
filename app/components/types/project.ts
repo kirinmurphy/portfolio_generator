@@ -50,12 +50,12 @@ export interface ProjectSummaryProps {
 export interface ProjectDetailProps {
   id: ProjectIdType;
   name: ProjectName;
-  marquee: MarqueeProps;
+  workType: WorkType;
   timeframe: TimeframeProps;
+  marquee: MarqueeProps;
   tagline: Tagline;
   description?: Description;
   url?: ProjectUrl;
-  workType: WorkType;
   jobtype?: Jobtype;
   parentProjectId?: ProjectIdType;
   parentProjectName?: ProjectName;

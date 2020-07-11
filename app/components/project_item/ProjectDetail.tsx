@@ -94,9 +94,7 @@ export const ProjectDetail: React.FC<Props> = ({ project }) => {
             </section>
 
             <section className="description">
-              <div className="tagline">
-                <Markdownizer source={tagline} />
-              </div>
+              <div className="tagline">{tagline}</div>
 
               {!!description && <Markdownizer source={description} />}
             </section>

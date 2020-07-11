@@ -2,9 +2,10 @@ import React from 'react';
 
 import { PersonalInfoProps } from '../types/portfolio';
 
+import { breakpointMiddle } from '../../portfolioData/cssVariables';
+
 import { Markdownizer } from '../widgets/Markdownizer';
 import { ContactLinks } from './ContactLinks';
-import { breakpointMiddle } from '../css/cssVariables';
 
 interface Props {
   introContent: PersonalInfoProps;
