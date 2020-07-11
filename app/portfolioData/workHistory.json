@@ -1,0 +1,12 @@
+{
+  "maxProjectsOnInit": {
+    "maxJobProjects": null,
+    "maxSoloProjects": null
+  },
+  "projectList": [
+    "gnn",
+    "catPhotography",
+    "sexPanther",
+    "channelFourNews"
+  ]
+}

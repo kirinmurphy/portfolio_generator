@@ -1,0 +1,30 @@
+[
+  {
+    "title": "Field Reporter",
+    "intro": "Best damn field reporter in the country.",
+    "featured": [
+      { 
+        "projectId":"gnn", 
+        "thumb":"news_gnn.png"
+      },
+      { 
+        "projectId":"channelFourNews", 
+        "thumb":"news_channelFour.png"
+      }
+    ]
+  },
+  {
+    "title": "Passion Projects",
+    "intro": "A man must have his passions.  These are mine.",
+    "featured": [
+      { 
+        "projectId":"catPhotography", 
+        "thumb":"personal_cats.png"
+      },
+      { 
+        "projectId":"sexPanther", 
+        "thumb":"personal_sexPanther.png"
+      }
+    ]
+  }
+]

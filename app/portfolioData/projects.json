@@ -1,0 +1,123 @@
+{
+  "gnn": {
+    "workType": "job",
+    "timeframe": {
+      "start": 1981,
+      "end": 1983
+    },
+    "name": "Global News Network",
+    "url": "https://www.imdb.com/title/tt1229340/characters/nm0748620",
+    "embedUrl": false,
+    "jobtype": "Employment",
+    "role": "Field Reporter",
+    "tagline": "World's first 24 hour news channel",
+    "description": "Now, ladies and gentlemen, now we all know there’s one reason that GNN have gotten to the top. And that reason is the greatest bloody newsman in the world. Long may he reign! Mr. Ron Burgundy!",
+    "marquee": {
+      "type":"slideshow",
+      "images": [
+        "gnn_01.png",
+        "gnn_02.png",
+        "gnn_03.png",
+        "gnn_04.png"
+      ]
+    },
+    "categories": [
+      "News Broadcasting"
+    ],
+    "languages": [
+      "English",
+      "Espanyol"
+    ],
+    "tools": [],
+    "links": []
+  },  
+  "channelFourNews": {
+    "workType": "job",
+    "timeframe": {
+      "start": 1972,
+      "end": 1980
+    },
+    "name": "Channel 4 News San Diego",
+    "url": "https://anchorman.fandom.com/wiki/Channel_4_News_Team",
+    "embedUrl": false,
+    "jobtype": "Employment",
+    "role": "Field Reporter",
+    "tagline": "Best damn news team in San Diego",
+    "description": "Panda Watch. The mood is tense; I have been on some serious, serious reports but nothing quite like this. I uh... Ching... King is inside right now. I tried to get an interview with him, but they said no, you can't do that he's a live bear, he will literally rip your face off.",
+    "marquee": {
+      "type":"slideshow",
+      "images": [
+        "channelFour_02.png",
+        "channelFour_01.png"
+      ]
+    },
+    "categories": [
+      "News Broadcasting"
+    ],
+    "languages": [
+      "English",
+      "Espanyol"
+    ],
+    "tools": [],
+    "links": []
+  },
+  "sexPanther": {
+    "workType": "job",
+    "timeframe": {
+      "start": 1977,
+      "end": "Present"
+    },
+    "name": "Sex Panther Cologne",
+    "url": "https://www.amazon.com/Sex-Panther-Cologne-Spray-Men/dp/B002R0GN9S",
+    "embedUrl": false,
+    "jobtype": "Freelance",
+    "role": "Brand Champion",
+    "tagline": "60 percent of the time... something happens",
+    "description": "It's illegal in nine countries... For legeal reasons we can't tell you which ones.",
+    "marquee": {
+      "type":"slideshow",
+      "images": [
+        "sp_01.png",
+        "sp_02.png",
+        "sp_03.png"
+      ]
+    },
+    "categories": [
+      "Men's Frangrance"
+    ],
+    "languages": [
+      "Most of them"
+    ],
+    "tools": [],
+    "links": []
+  },
+  "catPhotography": {
+    "workType": "solo",
+    "timeframe": {
+      "start": 1980,
+      "end": "Present"
+    },
+    "name": "Cat Photographer Extraordinaire",
+    "url": "",
+    "embedUrl": false,
+    "jobtype": "Founder",
+    "role": "Owner & Photographer",
+    "tagline": "World's most prolific cat photographer",
+    "description": "\"It's not getting any better than this.\"   \n\n Photographed cover for single most sucessful issue of Cat Fancy in magazine's history.",
+    "marquee": {
+      "type":"slideshow",
+      "images": [
+        "cats_01.png",
+        "cats_02.png",
+        "cats_03.png",
+        "cats_04.png"
+      ]
+    },
+    "categories": [
+      "Photography"
+    ],
+    "languages": [],
+    "tools": [],
+    "links": []
+  }     
+}

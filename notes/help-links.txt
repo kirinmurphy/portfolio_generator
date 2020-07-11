@@ -1,0 +1,31 @@
+
+tutorials
+https://strapi.io/blog/strapi-next-setup
+https://strapi.io/blog/build-a-blog-with-next-react-js-strapi-and-apollo
+
+useeffect
+https://codesandbox.io/s/input-modal-example-1to08?module=%2Fsrc%2Finput-modal.js
+https://stackoverflow.com/questions/32553158/detect-click-outside-react-component
+
+slideshow
+https://stackoverflow.com/questions/49435368/nextjs-unable-to-load-images-from-static-folder
+https://overreacted.io/how-are-function-components-different-from-classes/
+https://overreacted.io/making-setinterval-declarative-with-react-hooks/
+https://overreacted.io/a-complete-guide-to-useeffect/
+
+useReducer + Typescript
+https://www.youtube.com/watch?v=9KzQ9xFSAEU
+https://daveceddia.com/usereducer-hook-examples/
+https://stephencharlesweiss.com/blog/2019-10-21/usereducer-typescript/
+https://fettblog.eu/typescript-react/hooks/
+https://patrickdesjardins.com/blog/typescript-with-strong-typed-action-when-using-usereducer-of-react-hooks
+https://stackoverflow.com/questions/62211478/typescript-react-usereducer-hook-error-data-object-not-assignable-to-paramete
+
+video buffering
+https://developer.mozilla.org/en-US/docs/Web/Guide/Audio_and_video_delivery/buffering_seeking_time_ranges
+
+pushing large files in git 
+https://stackoverflow.com/questions/19573031/cant-push-to-github-because-of-large-file-which-i-already-deleted
+
+media
+https://ezgif.com/
