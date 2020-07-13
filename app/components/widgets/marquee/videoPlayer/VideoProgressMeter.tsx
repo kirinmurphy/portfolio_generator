@@ -1,14 +1,13 @@
 import React, { useRef } from 'react';
 import { VideoDisplayDataProps } from '../../../types/widgets';
-import { GenericRefTypeUntilIFigureOutTheCommonDenominator } from '../../../utils/bindTriggerOverride';
+import { GenericRefTypeUntilIFigureOutTheCommonDenominator } from '../../../types/global';
 
 interface Props {
   displayData: VideoDisplayDataProps;
   updatePlayerTime: (arg0: number) => void;
-};
+}
 
-
-export const VideoProgressMeter:React.FC<Props> = ({ displayData, updatePlayerTime }) => {
+export function VideoProgressMeter ({ displayData, updatePlayerTime }: Props): JSX.Element {
   const progressRef = useRef<HTMLDivElement>(null);
   const percentViewed = displayData.currentTime / displayData.duration * 100;
 
@@ -40,12 +39,11 @@ export const VideoProgressMeter:React.FC<Props> = ({ displayData, updatePlayerTi
       `}</style>
     </>
   );
-};
+}
 
 
 function getNewTimeFromClick (
-  // TSTODO - why doesn't event:Event work here? 
-  event: any, 
+  event: React.MouseEvent, 
   ref: GenericRefTypeUntilIFigureOutTheCommonDenominator, 
   displayData:VideoDisplayDataProps): number | null {
   
@@ -55,4 +53,4 @@ function getNewTimeFromClick (
   const clickedTargetPosition = event.pageX - containerOffset;
   const percentProgressOfClick = clickedTargetPosition / progressMeter?.offsetWidth;
   return Math.floor(displayData.duration * percentProgressOfClick);
-};
+}

@@ -1,14 +1,17 @@
+import React from 'react';
+
 import { MSG_BACK_LINK } from '../utils/dictionary';
 
 import '../utils/fontAwesomeLibrary';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-export const BackLink = () => {
+export function BackLink (): JSX.Element {
   return (
     <>
       <a className="back-link" 
         onClick={() => { window.history.back(); }}>
-          <FontAwesomeIcon icon={['fas', 'angle-left']} />{MSG_BACK_LINK}
+          
+        <FontAwesomeIcon icon={['fas', 'angle-left']} />{MSG_BACK_LINK}
       </a>    
       <style jsx>{`
         .back-link {
@@ -26,4 +29,4 @@ export const BackLink = () => {
       `}</style>
     </>
   );
-};
+}

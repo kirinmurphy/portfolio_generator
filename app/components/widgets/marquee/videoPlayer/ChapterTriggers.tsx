@@ -7,11 +7,11 @@ import { ChapterSelectionTrigger } from './ChapterSelectionTrigger';
 
 interface Props {
   chapters:FormattedVideoChapterProps[];
-  updatePlayerTime: (arg0:number) => void;
+  updatePlayerTime: (arg0:number | null) => void;
   currentTime: number;
-};
+}
 
-export const ChapterTriggers:React.FC<Props> = ({ chapters, updatePlayerTime, currentTime }) => {
+export function ChapterTriggers ({ chapters, updatePlayerTime, currentTime }: Props): JSX.Element {
   if ( !chapters || chapters.length < 2 ) { return (<></>); }
 
   const activeChapter = getActiveChapter(chapters, currentTime);
@@ -67,7 +67,7 @@ export const ChapterTriggers:React.FC<Props> = ({ chapters, updatePlayerTime, cu
       `}</style>
     </>
   );
-};
+}
 
 function getActiveChapter (chapters:FormattedVideoChapterProps[], currentTime: number) {
   return chapters.filter((chapter) => {

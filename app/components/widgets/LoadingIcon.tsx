@@ -1,7 +1,9 @@
+import React from 'react';
+
 import '../utils/fontAwesomeLibrary';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-export const LoadingIcon:React.FC = () => {
+export function LoadingIcon (): JSX.Element {
   return (
     <div className="loading-icon">
       <FontAwesomeIcon icon={['fas', 'spinner']} spin />

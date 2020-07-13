@@ -11,9 +11,9 @@ import { openActiveImageInNewWindow } from './ExpandoClicker';
 
 interface Props {
   images: string[];
-};
+}
 
-export const SlideshowPopup: React.FC<Props> = ({ images }) => {
+export function SlideshowPopup ({ images }: Props): JSX.Element {
   const [showFullScreen, setFullScreenState] = useState<boolean>(false);
 
   return (
@@ -49,4 +49,4 @@ export const SlideshowPopup: React.FC<Props> = ({ images }) => {
       `}</style>
     </>
   )
-};
+}

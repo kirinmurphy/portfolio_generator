@@ -5,21 +5,21 @@ import { MarqueeProps } from '../../types/widgets';
 import { SlideshowPopup } from './SlideshowPopup';
 import { VideoPlayer } from './videoPlayer/VideoPlayer';
 
-export function hasMarqueeContent (marquee: MarqueeProps, projectUrl?: string) {
+export function hasMarqueeContent (marquee: MarqueeProps, projectUrl?: string): boolean {
   if ( !marquee ) { return false; }
   const { type, images, video } = marquee;
   const hasImages = type === 'slideshow' && !!images && !!images.length;
   const hasIframe = type === 'iframe' && !!projectUrl;
-  const hasVideo = type === 'video' && !!video && !!video.src;
+  const hasVideo = type === 'video' && !!video && !!video.sources.length;
   return hasIframe || hasImages || hasVideo;
-};
+}
 
 interface Props {
   marquee: MarqueeProps;
   iframeUrl?: string;
-};
+}
 
-export const Marquee: React.FC<Props> = ({ marquee, iframeUrl }) => {
+export function Marquee ({ marquee, iframeUrl }: Props): JSX.Element {
   const { type, images, video } = marquee;
   return (
     <>
@@ -49,4 +49,4 @@ export const Marquee: React.FC<Props> = ({ marquee, iframeUrl }) => {
       `}</style>
     </>
   );
-};
+}

@@ -13,6 +13,11 @@ https://overreacted.io/how-are-function-components-different-from-classes/
 https://overreacted.io/making-setinterval-declarative-with-react-hooks/
 https://overreacted.io/a-complete-guide-to-useeffect/
 
+Typescript & eslint
+https://github.com/facebook/react/tree/master/packages/eslint-plugin-react-hooks
+https://github.com/yannickcr/eslint-plugin-react/issues/2353
+
+
 useReducer + Typescript
 https://www.youtube.com/watch?v=9KzQ9xFSAEU
 https://daveceddia.com/usereducer-hook-examples/
@@ -29,3 +34,14 @@ https://stackoverflow.com/questions/19573031/cant-push-to-github-because-of-larg
 
 media
 https://ezgif.com/
+
+fetch markdown file
+https://github.com/rexxars/react-markdown/issues/76
+
+react & cors
+https://www.youtube.com/watch?v=FMhVXOA54x8
+https://alligator.io/nodejs/solve-cors-once-and-for-all-netlify-dev/
+https://daveceddia.com/access-control-allow-origin-cors-errors-in-react-express/#best-cors-header-requires-server-changes
+
+create npm package 
+https://blog.logrocket.com/the-complete-guide-to-publishing-a-react-package-to-npm/

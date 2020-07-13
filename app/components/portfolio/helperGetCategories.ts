@@ -5,9 +5,9 @@ import { CategoryDisplayProps } from '../types/widgets';
 
 interface CategoryCountsProps {
   [key: string]: number;
-};
+}
 
-export const getCategories = (projects: ProjectSummaryProps[]): CategoryDisplayProps[] => {
+export function getCategories (projects: ProjectSummaryProps[]): CategoryDisplayProps[] {
   const categoryTotals = projects
     .map(project => project.categories || [])
     .reduce(categoryCountReducer, {});
@@ -20,7 +20,7 @@ export const getCategories = (projects: ProjectSummaryProps[]): CategoryDisplayP
       }
     })
     .sort((a,b) => b.count - a.count);
-};
+}
 
 function categoryCountReducer (
   categoryCounts: CategoryCountsProps, 
@@ -36,4 +36,4 @@ function categoryCountReducer (
 function increment (categoryCounts: CategoryCountsProps, category: string): number {
   const currentCount = categoryCounts[category];
   return !!currentCount ? currentCount + 1 : 1;
-};
+}

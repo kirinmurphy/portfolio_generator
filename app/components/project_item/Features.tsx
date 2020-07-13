@@ -10,7 +10,7 @@ interface Props {
   features?: FeaturesType;
 }
 
-export const Features:React.FC<Props> = ({ features }) => {
+export function Features ({ features }: Props): JSX.Element {
   return !!features ? (
     <>
       <h2>{MSG_FEATURES_TITLE}</h2>
@@ -25,4 +25,4 @@ export const Features:React.FC<Props> = ({ features }) => {
       )}
     </>
   ) : <></>;
-};
+}

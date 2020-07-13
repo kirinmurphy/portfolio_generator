@@ -12,9 +12,9 @@ import { ProjectActive } from './ProjectActive';
 
 interface Props {
   portfolioData: PortfolioProps;
-};
+}
 
-export const Portfolio:React.FC<Props> = ({ portfolioData }) => {
+export function Portfolio ({ portfolioData }: Props): JSX.Element {
   return (
     <>
       <section id="portfolio-intro" className="panel panel--inverted">
@@ -82,4 +82,4 @@ export const Portfolio:React.FC<Props> = ({ portfolioData }) => {
       <style jsx global>{cssPorfolioPrintView}</style>      
     </>
   );
-};
+}

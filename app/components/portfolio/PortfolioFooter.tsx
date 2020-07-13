@@ -8,9 +8,9 @@ import { Markdownizer } from '../widgets/Markdownizer';
 interface Props {
   links?: ContactLinksProps;
   footerCallToAction?: string;
-};
+}
 
-export const PortfolioFooter:React.FC<Props> = ({ links, footerCallToAction }) => {
+export function PortfolioFooter ({ links, footerCallToAction }: Props): JSX.Element {
   return (
     <>
       <div className="footer-call-to-action">
@@ -41,4 +41,4 @@ export const PortfolioFooter:React.FC<Props> = ({ links, footerCallToAction }) =
       `}</style>
     </>
   );
-};
+}

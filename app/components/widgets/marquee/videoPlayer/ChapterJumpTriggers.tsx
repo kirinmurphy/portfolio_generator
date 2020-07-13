@@ -6,12 +6,12 @@ import { IconProp } from '@fortawesome/fontawesome-svg-core';
 
 interface IconProps {
   show: boolean;
-  updatePlayerTime: (arg0: any) => void;
+  updatePlayerTime: (arg0: number | null) => void;
   triggerStartTime : number | null;
   icon: IconProp;
-};
+}
 
-const JumpIconTrigger:React.FC<IconProps> = (props) => {
+function JumpIconTrigger (props: IconProps): JSX.Element {
   const { triggerStartTime, show, updatePlayerTime, icon } = props;
   return show ? (
     <span 
@@ -20,19 +20,19 @@ const JumpIconTrigger:React.FC<IconProps> = (props) => {
       }}>
       
       <FontAwesomeIcon icon={icon} />
-    <style jsx>{`
-      span { cursor:pointer; }
-    `}</style>
+      <style jsx>{`
+        span { cursor:pointer; }
+      `}</style>
     </span>
   ): <></>;
-};
+}
 
 export const JumpForwardIconTrigger:React.FC<IconProps> = JumpIconTrigger;
 
 interface BackIconProps extends IconProps {
   triggerStartTime: number;
-};
+}
 
-export const JumpBackIconTrigger:React.FC<BackIconProps> = (props) => {
+export function JumpBackIconTrigger (props: BackIconProps): JSX.Element {
   return ( <JumpIconTrigger {...props} />);
-};
+}

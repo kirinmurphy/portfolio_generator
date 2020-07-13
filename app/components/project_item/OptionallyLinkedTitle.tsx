@@ -7,8 +7,8 @@ interface Props {
   name: ProjectName;
 }
 
-export const OptionallyLinkedTitle: React.FC<Props> = ({ url, name }) => {
+export function OptionallyLinkedTitle ({ url, name }: Props): JSX.Element {
   return !!url
     ? <a href={url}>{name}</a>
     : <span>{name}</span>;
-};
+}

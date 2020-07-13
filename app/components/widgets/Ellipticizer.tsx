@@ -1,9 +1,11 @@
+import React from 'react';
+
 interface Props {
   children: JSX.Element | string;
   width?: string;
-};
+}
 
-export const Ellipticizer:React.FC<Props> = ({ children, width }) => {
+export function Ellipticizer ({ children, width }: Props): JSX.Element {
   return (
     <span>
       {children}
@@ -19,4 +21,4 @@ export const Ellipticizer:React.FC<Props> = ({ children, width }) => {
       `}</style>
     </span>
   );
-};
+}

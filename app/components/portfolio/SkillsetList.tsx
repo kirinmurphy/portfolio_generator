@@ -6,9 +6,9 @@ import { Skillset } from './Skillset';
 
 interface Props {
   skillsets: SkillsetProps[];
-};
+}
 
-export const SkillsetList: React.FC<Props> = ({ skillsets }) => {
+export function SkillsetList ({ skillsets }: Props): JSX.Element {
   return (
     <>
       <div className="skillsets-list">
@@ -18,11 +18,11 @@ export const SkillsetList: React.FC<Props> = ({ skillsets }) => {
           </div>
         ))}
       </div>
-        <style jsx>{`
-          .skillsets-list__item {
-            margin-bottom: 2rem;         
-          }
-        `}</style>    
+      <style jsx>{`
+        .skillsets-list__item {
+          margin-bottom: 2rem;         
+        }
+      `}</style>    
     </>
   );  
-};
+}

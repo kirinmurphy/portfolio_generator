@@ -1,3 +1,5 @@
+import React from 'react';
+
 import { 
   MSG_WORK_HISTORY_TYPE, 
   MSG_SHOW_ALL_IN_LIST_TRIGGER 
@@ -17,9 +19,9 @@ interface Props {
   maxProjectsOnInit: number | null;
   showAll: boolean;
   toggleShowAll: (arg0: boolean) => void;
-};
+}
 
-export const WorkHistorySubset:React.FC<Props> = (props) => {
+export function WorkHistorySubset (props: Props): JSX.Element {
   const {
     workType,
     projectList,
@@ -31,12 +33,9 @@ export const WorkHistorySubset:React.FC<Props> = (props) => {
 
   const filteredList = getSubset(projectList, workType);
 
-  const displayShowAllTrigger = () => {
-    const someProjectsHiddenOnInit = !!maxProjectsOnInit && filteredList.length > maxProjectsOnInit;
-    return someProjectsHiddenOnInit && !showAll;  
-  };
-
-  const indexForHidingImages = !!maxProjectsOnInit ? maxProjectsOnInit+1 : 1000000;
+  const someProjectsHiddenOnInit = !!maxProjectsOnInit && filteredList.length > maxProjectsOnInit;
+  const displayShowAllTrigger = someProjectsHiddenOnInit && !showAll;  
+  const indexToHideProjects = !!maxProjectsOnInit ? maxProjectsOnInit+1 : 1000000;
 
   return (
     <div data-show-all={showAll}>
@@ -46,7 +45,7 @@ export const WorkHistorySubset:React.FC<Props> = (props) => {
         activeCategory={activeCategory}
       />
 
-      {displayShowAllTrigger() && (
+      {displayShowAllTrigger && (
         <div className="show-all" onClick={() => toggleShowAll(true)}>
           <span>
             {MSG_SHOW_ALL_IN_LIST_TRIGGER}
@@ -87,7 +86,7 @@ export const WorkHistorySubset:React.FC<Props> = (props) => {
         }
 
         @media screen {
-          [data-show-all="false"] :global(article:nth-of-type(n+${indexForHidingImages})) { 
+          [data-show-all="false"] :global(article:nth-of-type(n+${indexToHideProjects})) { 
             display:none; 
           }
         }
@@ -104,4 +103,4 @@ function getSubset (
   projectList: ProjectSummaryProps[], 
   workType:string) {
   return projectList.filter(project => project.workType == workType);
-};
+}

@@ -9,9 +9,9 @@ import { getProjectPath } from './helperProjectId';
 
 interface Props {
   highlight: ProjectHighlightProps;
-};
+}
 
-export const ProjectHighlight: React.FC<Props> = ({ highlight }) => {
+export function ProjectHighlight ({ highlight }: Props): JSX.Element {
   const {
     projectId,
     url,
@@ -41,7 +41,7 @@ export const ProjectHighlight: React.FC<Props> = ({ highlight }) => {
       )}
       
       <div className="highlight-desc">
-        <Markdownizer source={description} />
+        <Markdownizer source={description || ''} />
       </div>
 
       <style jsx>{`
@@ -61,4 +61,4 @@ export const ProjectHighlight: React.FC<Props> = ({ highlight }) => {
       `}</style>
     </>
   );
-};
+}

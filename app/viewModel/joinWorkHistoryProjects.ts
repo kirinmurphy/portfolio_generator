@@ -1,11 +1,12 @@
 import { LooseObject } from '../components/types/global';
+import { ProjectSummaryProps } from '../components/types/project';
 
-export const joinProjectDataToWorkHistory = (
+export function joinProjectDataToWorkHistory (
   allProjects: LooseObject, 
-  projectId: string) => {
+  projectId: string): ProjectSummaryProps {
     
   return {
     id: projectId,
     ...allProjects[projectId]
   };
-};
+}

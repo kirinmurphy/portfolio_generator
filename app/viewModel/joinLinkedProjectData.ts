@@ -1,6 +1,5 @@
-
 import { LooseObject } from '../components/types/global';
-import { ProjectHighlightProps } from '../components/types/project';
+import { ProjectHighlightProps, ProjectsObjectProps } from '../components/types/project';
 
 import { joinLinkedChildProjectDetails } from './joinLinkedChildProjectDetails';
 import { getFormattedChapters } from '../components/widgets/marquee/videoPlayer/helperGetFormattedChapters';
@@ -8,7 +7,7 @@ import { getFormattedChapters } from '../components/widgets/marquee/videoPlayer/
 // TSTODO - this breaks when bind it to the view model stuff
 // beceause the required/optional fields are different btw raw and joined data
 // guess I need separate raw/joined interfaces and somehow extend one onto the other? 
-export const formatAndJoinProjectData = (allProjects: LooseObject) => {
+export function formatAndJoinProjectData (allProjects: LooseObject): ProjectsObjectProps {
   return Object.keys(allProjects).map((projectId) => {
     const project = allProjects[projectId];
 

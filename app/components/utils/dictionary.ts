@@ -13,6 +13,6 @@ export const MSG_SHOW_ALL_IN_LIST_TRIGGER = 'Show all';
 
 export const MSG_WORK_HISTORY_TYPE = {
   job: "Employment and Client Work",
-  solo: MSG_SOLO_PROJECT,
+  solo: "Solo Projects",
   multi_project: ''
 };

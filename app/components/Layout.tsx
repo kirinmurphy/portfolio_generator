@@ -1,15 +1,19 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 import { cssDefaults } from './css/cssDefaults';
 import { cssLinks } from './css/cssLinks';
 import { globalVariables } from '../portfolioData/cssVariables';
 import { cssProjectOverrides } from '../portfolioData/cssProjectOverrides';
+import { redirectIfOldIE } from './utils/redirectIfOldIE';
 
-interface LayoutComponentProps {
+interface Props {
   children: JSX.Element;
 }
 
-export const Layout:React.FC<LayoutComponentProps> = (props) => {
+export function Layout ({ children }: Props): JSX.Element {
+
+  useEffect(() => { redirectIfOldIE(window); }, []);
+
   return (
     <>
       <style jsx global>{globalVariables}</style>
@@ -18,8 +22,8 @@ export const Layout:React.FC<LayoutComponentProps> = (props) => {
       <style jsx global>{cssProjectOverrides}</style>
 
       <div className="body-wrap">
-        {props.children}
+        {children}
       </div>  
     </>
   );
-}; 
+}

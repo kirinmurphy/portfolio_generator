@@ -4,8 +4,12 @@ node_modules
 .next
 .DS_Store
 .env*
+projsumm.m4v
 
 # debug
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+project_review.m4v
+provjjeectbew.ogg

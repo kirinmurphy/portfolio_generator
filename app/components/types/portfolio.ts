@@ -14,26 +14,26 @@ export interface PortfolioProps {
   skillsets: SkillsetProps[];
   workHistory: WorkHistoryProps;
   allProjects: ProjectsObjectProps;
-};
+}
 
 export interface PersonalInfoProps {
   name: string;
   introduction: string;
   links?: ContactLinksProps;
   footerCallToAction?: string;
-};
+}
 
 export interface ContactLinksProps {
   email?: string;
   github?: string;
   linkedIn?: string;
-};
+}
 
 export interface SkillsetProps {
   title: string;
   intro: string;
   featured: SkillsetFeaturedProjectProps[];
-};
+}
 
 export interface SkillsetFeaturedProjectProps {
   projectId: ProjectIdType;
@@ -44,7 +44,7 @@ export interface SkillsetFeaturedProjectProps {
   workType?: WorkType;
   client?: string;
   timeframe?: TimeframeProps;
-};
+}
 
 export interface WorkHistoryProps {
   maxProjectsOnInit: {
@@ -52,4 +52,4 @@ export interface WorkHistoryProps {
     maxJobProjects: number | null;
   };
   projectList: ProjectSummaryProps[]
-};
+}

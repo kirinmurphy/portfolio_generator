@@ -1,3 +1,5 @@
+import React from 'react';
+
 import '../../../utils/fontAwesomeLibrary';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { IconProp } from '@fortawesome/fontawesome-svg-core';
@@ -5,9 +7,9 @@ import { IconProp } from '@fortawesome/fontawesome-svg-core';
 interface Props { 
   trigger:() => void; 
   icon: IconProp;
-};
+}
 
-export const PlayerStateTrigger:React.FC<Props> = ({ trigger, icon }) => {
+export function PlayerStateTrigger ({ trigger, icon }: Props): JSX.Element {
   return (
     <span onClick={trigger}>
       <FontAwesomeIcon icon={icon} />
@@ -16,4 +18,4 @@ export const PlayerStateTrigger:React.FC<Props> = ({ trigger, icon }) => {
       `}</style>
     </span>
   );
-};
+}

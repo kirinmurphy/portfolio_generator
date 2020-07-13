@@ -7,9 +7,9 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 interface Props {
   links: ExternalLinkProps[];
-};
+}
 
-export const ExternalLinks:React.FC<Props> = ({ links }) => {
+export function ExternalLinks ({ links }: Props): JSX.Element {
   return (
     <>
       {links && links.map(({ name, url, icon }, index: number) => (

@@ -13,40 +13,40 @@ export const PLAYER_ACTION_CLEAR_UPDATED_TIME = 'resetUpdatedTime';
 
 export function playerStateReducer(
   state: VideoPlayerStateProps, 
-  action: VideoPlayerActionProps) {
+  action: VideoPlayerActionProps): VideoPlayerStateProps {
   
   switch (action.type) {
-    case PLAYER_ACTION_ENABLE_CONTROLS: 
-      return {
-        ...state,
-        playerState: PLAYER_STATE_READY,
-        updatedTime: null
-      };
-    case PLAYER_ACTION_PLAY: 
-      return {
-        ...state, 
-        playerState: PLAYER_STATE_PLAYING, 
-        updatedTime: null 
-      };
-    case PLAYER_ACTION_PAUSE:
-      return {
-        ...state,
-        playerState: PLAYER_STATE_PAUSED,
-        updatedTime: null 
-      };
-    case PLAYER_ACTION_JUMP_TO: 
-      return {
-        ...state,
-        playerState: PLAYER_STATE_PLAYING, 
-        updatedTime:action.updatedTime 
-      };
-    case PLAYER_ACTION_CLEAR_UPDATED_TIME:
-      return {
-        ...state,
-        updatedTime: null
-      };
-    
-    default:
-      throw new Error();
+  case PLAYER_ACTION_ENABLE_CONTROLS: 
+    return {
+      ...state,
+      playerState: PLAYER_STATE_READY,
+      updatedTime: null
+    };
+  case PLAYER_ACTION_PLAY: 
+    return {
+      ...state, 
+      playerState: PLAYER_STATE_PLAYING, 
+      updatedTime: null 
+    };
+  case PLAYER_ACTION_PAUSE:
+    return {
+      ...state,
+      playerState: PLAYER_STATE_PAUSED,
+      updatedTime: null 
+    };
+  case PLAYER_ACTION_JUMP_TO: 
+    return {
+      ...state,
+      playerState: PLAYER_STATE_PLAYING, 
+      updatedTime:action.updatedTime 
+    };
+  case PLAYER_ACTION_CLEAR_UPDATED_TIME:
+    return {
+      ...state,
+      updatedTime: null
+    };
+  
+  default:
+    throw new Error();
   }
-};
+}

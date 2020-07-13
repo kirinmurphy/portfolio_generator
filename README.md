@@ -1,10 +1,19 @@
-# Portfolio Generator
-Starter .json [here](https://github.com/kirinmurphy/portfolio_generator/tree/master/app/portfolioData)   
-
 ## Portfolio Data
-### Personal Info
-`name`, `introduction`, `contactLinks` and `footerCallToAction`
+[starter .json](https://github.com/kirinmurphy/portfolio_generator/tree/master/app/portfolioData)   
 
+### Personal Info
+```
+{
+  name: "Guy Person",
+  introduction: "hi. hire me because of this and this and this."
+  contactLinks: {
+    email: 'guyperson@gmail.com',
+    linkedin: '//www.linkedin.com/in/guyperson',
+    github: '//www.github.com/guyperson'
+  },
+  footerCallToAction: "seriously, hire me."
+}
+```
 ### Projects
 - A job
 - A project (or role) at a job
@@ -26,8 +35,8 @@ Grouping of projects by specialty or interest
 ```
 [
   {
-    "title": "Specialty or Interest",
-    "description": "Something about the thing.",
+    title: "Specialty or Interest",
+    description: "Something about the thing.",
     featured: [
       { 
         projectId: 'someProjectId',
@@ -73,34 +82,34 @@ Optional max view limit on init
 
 
 ## Project Data
-// required
+required
 ```
-"name": "Project name",
-"tagline": "Short explanation of company or project for summaries",
-"workType": "job", "solo", or "multi_project"
-"timeframe: {
-  "start": 2010,
-  "end": 2012  // or "Present"
+name: "Project name",
+tagline: "Short explanation of company or project for summaries",
+workType: "job", "solo", or "multi_project"
+timeframe: {
+  start: 2010,
+  end: 2012  // or "Present"
 }
 ```
 
-// optional
+optional
 ```
-"url": "url-of-company-or-project-demo.com",
-"role": "Assistant to the general manager",
-"jobtype: "Freelance, Full Time, Solo Project etc.",
-"description": "More detailed description for project view",
-"tools": ["Excel", "Jira", "Photoshop"]
-"languages": ["html", "react", "python"],
-"features": ["Software does this thing.", "Software does this other thing"],
-"links" [
-  { name:"Code", url: "github.com/repo", "icon": "github-alt" },
-  { name:"Slack group", url: "slack.com/somegroup", "icon": "slack" }
+url: "url-of-company-or-project-demo.com",
+role: "Assistant to the general manager",
+jobtype: "Freelance, Full Time, Solo Project etc.",
+description: "More detailed description for project view",
+tools: ["Excel", "Jira", "Photoshop"]
+languages: ["html", "react", "python"],
+links" [
+  { name:"Code", url: "github.com/repo", icon: "github-alt" },
+  { name:"Slack group", url: "slack.com/somegroup", icon: "slack" }
 ],
-"categories": more below,
-"parentProjectId": more below,
-"highlgihts" : more below,
-"marquee": more below
+categories: more below,
+parentProjectId: more below,
+highlgihts: more below,
+marquee: more below,
+repoReadmeFile: more below,
 ```
 
 ### parentProjectId
@@ -147,41 +156,27 @@ categories: ["Product Design", "Data Driven Apps"]
 ![Category Dropdown](https://github.com/kirinmurphy/portfolio_generator/blob/master/notes/readme-screenshots/categoryDropdown.png)
 
 
-### marquee
-Each project can include a marquee displaying an image slideshow, iframe, or video with chapters.       
+### Multimediazier
+Each project can include a multimedia section displaying either an image slideshow, iframe, or video with chapters.   
 
-#### Slideshow:
-```
-marquee: {
-  type: 'slideshow',
-  images: [
-    'path-to-image1.jpg',
-    'https://www.site.com/image-file.png'
-  ]
-}
-```
-#### Video: 
-`src` required, `poster` and `chapters` are optional
-```
-marquee: {
-  type: 'video',
-  src: 'path-or-url-to-video-file.mp4',
-  poster: 'image-file-displayed-before-video-loaded.png',
-  chapters: [
-    { startTime: '0:00', title: 'Chapter 1' },
-    { startTime: '4:30', title: 'Chapter 2' }
-  ]
-}
-```
+Multimediazer widget readme [here](https://github.com/kirinmurphy/codethings-react-ui)
 
-#### Iframe
-Displays main project site in iframe window
+
+### repoReadmeFile
+Link a readme file from your project's (github, gitlab or bitbucket) repo
 ```
-url: 'https://main-project-url.com',
-marquee: {
-  type: 'iframe'
-}
+"repoReadmeFile": {
+  "site": "github",
+  "source": "user_name/repo_name/README.md",
+  "imageFolderPrefix": "https://github.com/username/repo_name/blob/master/some_parent_folder/"
+},
 ```
+*The `source` must be the RAW version of the file.
+
+To avoid CORS restrictions, linked images must be duplicated in the `/samples` folder. For example:      
+if images are in `https://github.com/username/repo_name/blob/master/readme_images`    
+then set `imageFolderPrefix`: `https://github.com/username/repo_name/blob/master/`    
+and copy the image files to in `public/samples/readme_images`  
 
 
 ## Additional Features
@@ -191,10 +186,8 @@ marquee: {
     - skillsets: `skillset.intro`
 - Persistent project links via `?project=projectId`
 - Link hijacking opens all project and asset links in popup (including in markdown)
-- Responsive slideshow images loaded with `<picture>`
 - Formatted resume print view
 - Sweet, sweet SEO with [Next.js](https://www.next.js) server side React rendering 
-- Cached intro animation only displays in new tab or after 10 minutes
 
 ## Asset Management
 ### Copy
@@ -214,8 +207,8 @@ marquee: {
 
 
 ## Search Bots
-By default, this site will tell search crawlers NOT to index this page. 
-To change these settings, edit or delete `public/robots.txt`
+By default, this site will tell search crawlers NOT to index this page.   
+These settings can be changed by editing or deleting `public/robots.txt`
 
 
 ## Run

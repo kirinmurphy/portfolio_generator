@@ -1,6 +1,6 @@
-import { useState, useRef } from 'react';
+import React, { useState, useRef } from 'react';
 
-import { bindOutsideTriggerListener } from '../utils/bindOutsideTriggerListener';
+import { useOutsideTriggerListener } from '../utils/useOutsideTriggerListener';
 
 interface Props {
   title: string | JSX.Element;
@@ -8,7 +8,7 @@ interface Props {
   orientation?: 'above' | 'below';
 }
 
-export const Dropdown: React.FC<Props> = ({ title, content, orientation = 'below' }) => {
+export function Dropdown ({ title, content, orientation = 'below' }: Props): JSX.Element {
   const dropdownRef = useRef<HTMLDListElement>(null);
   const dropdownWindowRef = useRef<HTMLDListElement>(null);
 
@@ -22,7 +22,7 @@ export const Dropdown: React.FC<Props> = ({ title, content, orientation = 'below
     setActiveState(false);
   };
 
-  bindOutsideTriggerListener(dropdownRef, closeDropdown);
+  useOutsideTriggerListener(dropdownRef, closeDropdown);
 
   const dropdownParentHeight = dropdownRef.current?.offsetHeight;
 
@@ -93,8 +93,6 @@ export const Dropdown: React.FC<Props> = ({ title, content, orientation = 'below
           content: "▲";
         }
 
-
-
         // optional dropdown theme
         dd :global(.dropdown-item) {
           padding:.5rem 1rem;
@@ -114,4 +112,4 @@ export const Dropdown: React.FC<Props> = ({ title, content, orientation = 'below
       `}</style>
     </>
   );
-};
+}

@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 
 import { breakpointMaxWidth } from '../../../portfolioData/cssVariables';
 
@@ -9,15 +9,15 @@ interface SlideshowProps {
   showSmallImageAtMaxWidth: boolean;
   autoRotateDelay?: number;
   expandoButtonText: string;
-  expandoClickCallback: any;
-};
+  expandoClickCallback: (arg0: string | null) => void;
+}
 
-export const Slideshow = ({ 
+export function Slideshow ({ 
   images, 
   showSmallImageAtMaxWidth,
   autoRotateDelay, 
   expandoButtonText, 
-  expandoClickCallback }: SlideshowProps) => {
+  expandoClickCallback }: SlideshowProps): JSX.Element {
 
   const imageCount = images.length;
 
@@ -36,7 +36,7 @@ export const Slideshow = ({
       const timeout = setTimeout(() => { setActiveIndex(nextIndex); }, duration); 
       return () => { clearTimeout(timeout); };   
     }
-  }, [nextIndex]);
+  }, [nextIndex, autoRotateDelay, imageCount]);
 
   return (
     <>
@@ -186,9 +186,9 @@ export const Slideshow = ({
       `}</style>
     </>
   );
-};
+}
 
 function getScreenshotUrl (image: string, directory: string) {
   const isExternalLink = image.slice(0, 4) === 'http';
   return isExternalLink ? image : `/images/screenshots/${directory}/${image}`;
-};
+}

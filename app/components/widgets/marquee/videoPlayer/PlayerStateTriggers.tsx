@@ -1,3 +1,5 @@
+import React from 'react';
+
 import { PlayerStateTrigger } from './PlayerStateTrigger';
 import { VideoPlayerActionTypes, PlayerStateType } from '../../../types/widgets';
 import { 
@@ -9,9 +11,9 @@ import {
 interface Props {
   playerState: PlayerStateType;
   updatePlayerState: (arg0: VideoPlayerActionTypes) => void;
-};
+}
 
-export const PlayerStateTriggers:React.FC<Props> = ({ playerState, updatePlayerState }) => {
+export function PlayerStateTriggers ({ playerState, updatePlayerState }: Props): JSX.Element {
   return (
     <span className="player-controls">
       {playerState !== PLAYER_STATE_PLAYING && (
@@ -29,4 +31,4 @@ export const PlayerStateTriggers:React.FC<Props> = ({ playerState, updatePlayerS
       )}
     </span>
   );
-};
+}

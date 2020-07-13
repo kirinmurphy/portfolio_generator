@@ -9,9 +9,9 @@ import { SkillsetFeaturedProject } from './SkillsetFeaturedProject';
 
 interface Props {
   skillset: SkillsetProps;
-};
+}
 
-export const Skillset:React.FC<Props> = ({ skillset }) => {
+export function Skillset ({ skillset }: Props): JSX.Element {
   const {
     title,
     intro,
@@ -125,4 +125,4 @@ export const Skillset:React.FC<Props> = ({ skillset }) => {
       </style>
     </>
   );
-};
+}

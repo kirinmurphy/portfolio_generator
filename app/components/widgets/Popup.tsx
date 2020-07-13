@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
 
-import { bindOutsideTriggerListener } from '../utils/bindOutsideTriggerListener';
+import { useOutsideTriggerListener } from '../utils/useOutsideTriggerListener';
 
 import '../utils/fontAwesomeLibrary';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -8,12 +8,12 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 interface Props {
   children: JSX.Element | JSX.Element[];
   closeAction: () => void;
-};
+}
 
-export const Popup: React.FC<Props> = ({ children, closeAction }) => {
+export function Popup ({ children, closeAction }: Props): JSX.Element {
 
   const popupRef = useRef<HTMLDivElement>(null);
-  bindOutsideTriggerListener(popupRef, closeAction);
+  useOutsideTriggerListener(popupRef, closeAction);
 
   return (
     <>
@@ -86,4 +86,4 @@ export const Popup: React.FC<Props> = ({ children, closeAction }) => {
     `}</style>
     </>
   );
-};
+}

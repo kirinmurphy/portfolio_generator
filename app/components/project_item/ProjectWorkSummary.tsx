@@ -10,7 +10,7 @@ interface Props {
   project: ProjectSummaryProps;
 }
 
-export const ProjectWorkSummary: React.FC<Props> = ({ project }) => {
+export function ProjectWorkSummary ({ project }: Props): JSX.Element {
   const { 
     id, 
     name, 
@@ -34,7 +34,9 @@ export const ProjectWorkSummary: React.FC<Props> = ({ project }) => {
 
         </h3>
 
-        <section className="tagline">{tagline}</section>
+        <section className="tagline">
+          <Markdownizer source={tagline} />
+        </section>
       </a>
 
       <style jsx>{`
@@ -65,4 +67,4 @@ export const ProjectWorkSummary: React.FC<Props> = ({ project }) => {
       `}</style>
     </>
   ) : <></>;
-};
+}

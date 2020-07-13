@@ -35,9 +35,9 @@ const ANIMATOR_CACHE_RESET_IN_SECONDS = tenMinutes;
 
 interface Props {
   children: JSX.Element;
-};
+}
 
-export const PortfolioAnimator:React.FC<Props> = ({ children }) => {
+export function PortfolioAnimator ({ children }: Props): JSX.Element {
 
   const [isReady, setIsReady] = useState<boolean | null>(null);
 
@@ -134,4 +134,4 @@ export const PortfolioAnimator:React.FC<Props> = ({ children }) => {
       `}</style>
     </>
   );
-};
+}

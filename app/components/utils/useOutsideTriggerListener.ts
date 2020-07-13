@@ -1,16 +1,15 @@
-
+import { GenericRefTypeUntilIFigureOutTheCommonDenominator } from '../types/global';
 
 import { 
-  bindTriggerOverride, 
+  useTriggerOverride, 
   triggerOverrideCallbackType,
-  GenericRefTypeUntilIFigureOutTheCommonDenominator
-} from './bindTriggerOverride';
+} from './useTriggerOverride';
 
-export const bindOutsideTriggerListener = (
+export function useOutsideTriggerListener (
   ref:GenericRefTypeUntilIFigureOutTheCommonDenominator, 
-  callback:triggerOverrideCallbackType) => {
+  callback:triggerOverrideCallbackType): void {
   
-    bindTriggerOverride({ 
+  useTriggerOverride({ 
     eventType: 'mousedown', 
     ref: ref, 
     condition: ({ ref, event }) => {
@@ -18,4 +17,4 @@ export const bindOutsideTriggerListener = (
     }, 
     conditionalCallback: callback
   });
-};
+}

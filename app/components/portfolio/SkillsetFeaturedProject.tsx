@@ -9,9 +9,9 @@ import { getProjectPath } from '../project_item/helperProjectId';
 
 interface Props {
   featured: SkillsetFeaturedProjectProps;
-};
+}
 
-export const SkillsetFeaturedProject: React.FC<Props> = ({ featured }) => {
+export function SkillsetFeaturedProject ({ featured }: Props): JSX.Element {
   const {
     url,
     projectId,
@@ -91,4 +91,4 @@ export const SkillsetFeaturedProject: React.FC<Props> = ({ featured }) => {
       `}</style>
     </>
   );
-};
+}

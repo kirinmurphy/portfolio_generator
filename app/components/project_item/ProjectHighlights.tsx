@@ -7,9 +7,9 @@ import { ProjectHighlight } from './ProjectHighlight';
 
 interface Props {
   highlights?: ProjectHighlightsProps;
-};
+}
 
-export const ProjectHighlights: React.FC<Props> = ({ highlights }) => {
+export function ProjectHighlights ({ highlights }: Props): JSX.Element {
   return !!highlights ? (
     <>
       {!!highlights.title && <h2 className="name">{highlights.title}</h2>}
@@ -34,4 +34,4 @@ export const ProjectHighlights: React.FC<Props> = ({ highlights }) => {
       `}</style>
     </>
   ) : <></>;
-};
+}

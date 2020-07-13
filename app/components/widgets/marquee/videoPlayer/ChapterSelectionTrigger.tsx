@@ -1,3 +1,5 @@
+import React from 'react';
+
 import { 
   MSG_VIDEO_PLAYER_CURRENT_CHAPTER_LABEL, 
   MSG_VIDEO_PLAYER_NEXT_CHAPTER_LABEL 
@@ -13,13 +15,13 @@ interface Props {
   activeChapter: FormattedVideoChapterProps;
   activeChapterIndex: number;
   updatePlayerTime: (arg0:number) => void;
-};
+}
 
-export const ChapterSelectionTrigger:React.FC<Props> = ({ 
+export function ChapterSelectionTrigger ({ 
   chapters, 
   activeChapter, 
   activeChapterIndex, 
-  updatePlayerTime }) => {
+  updatePlayerTime }: Props): JSX.Element {
 
   return (
     <>
@@ -67,4 +69,4 @@ export const ChapterSelectionTrigger:React.FC<Props> = ({
       `}</style> 
     </>
   );  
-};
+}

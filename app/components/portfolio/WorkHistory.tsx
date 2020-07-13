@@ -10,9 +10,9 @@ import { WorkHistorySubset } from './WorkHistorySubset';
 
 interface Props {
   workHistory: WorkHistoryProps;
-};
+}
 
-export const WorkHistory:React.FC<Props> = ({ workHistory }) => {
+export function WorkHistory ({ workHistory }: Props): JSX.Element {
   const { projectList, maxProjectsOnInit } = workHistory;
   const {
     maxJobProjects,
@@ -78,4 +78,4 @@ export const WorkHistory:React.FC<Props> = ({ workHistory }) => {
       `}</style>
     </>    
   );
-};
+}

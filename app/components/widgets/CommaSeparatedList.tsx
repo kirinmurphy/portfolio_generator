@@ -6,9 +6,9 @@ import { Markdownizer } from './Markdownizer';
 interface Props {
   name: string;
   collection?: CommaSeparatedListProps;
-};
+}
 
-export const CommaSeparatedList:React.FC<Props> = ({ name, collection }) => {
+export function CommaSeparatedList ({ name, collection }: Props): JSX.Element {
   return collection && collection.length ? (
     <>
       <div>
@@ -34,6 +34,5 @@ export const CommaSeparatedList:React.FC<Props> = ({ name, collection }) => {
         }
       `}</style>
     </>
-  ) 
-  : <></>;
-};
+  ) : <></>;
+}

@@ -9,9 +9,9 @@ interface Props {
   projects: ProjectSummaryProps[];
   activeCategory: string;
   title: string;
-};
+}
 
-export const ProjectList: React.FC<Props> = ({ projects, activeCategory, title }) => {
+export function ProjectList ({ projects, activeCategory, title }: Props): JSX.Element {
   return hasActiveItems(activeCategory, projects) ? (
     <>
       <header>
@@ -48,16 +48,16 @@ export const ProjectList: React.FC<Props> = ({ projects, activeCategory, title }
       `}</style>
     </>
   ) : <></>;  
-};
+}
 
 function showProject (activeCategory: string, project: ProjectSummaryProps) {
   const showAll = activeCategory === MSG_ALL_PROJECTS_KEY;
   const matchesActiveCategory = project.categories?.includes(activeCategory);
   return showAll || matchesActiveCategory;
-};
+}
 
 function hasActiveItems (activeCategory: string, projects: ProjectSummaryProps[]) {
   return projects.filter(project => {
     return showProject(activeCategory, project);
   }).length > 0;
-};
+}

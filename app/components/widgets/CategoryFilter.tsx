@@ -4,13 +4,13 @@ import { CategoryDisplayProps } from '../types/widgets';
 
 import { Dropdown } from './Dropdown';
 
-interface CategoryFilterComponentProps {
+interface Props {
   categories: CategoryDisplayProps[];
   updateCallback: (arg0: string) => void;
   activeCategory: string;
-};
+}
 
-export const CategoryFilter:React.FC<CategoryFilterComponentProps> = (props) => {
+export function CategoryFilter (props: Props): JSX.Element {
   const { categories, updateCallback, activeCategory } = props;
   return (
     <>
@@ -29,10 +29,10 @@ export const CategoryFilter:React.FC<CategoryFilterComponentProps> = (props) => 
       />
     </>
   );
-};
+}
 
 function getActiveCategoryTitle (categories: CategoryDisplayProps[], activeCategory: string) {
   const activeIndex = categories.findIndex(category => category.name === activeCategory);
   const activeCategoryCount = categories[activeIndex].count;
   return `${activeCategory} (${activeCategoryCount})`;
-};
+}

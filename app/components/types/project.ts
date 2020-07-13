@@ -22,20 +22,20 @@ export interface ExternalLinkProps {
   name: string;
   url: string;
   icon: IconProp;
-};
+}
 
 export interface ProjectHighlightProps {
-  description: Description;
+  description?: Description;
   name?: string;
   url?: string;
   projectId?: ProjectIdType;
   timeframe?: TimeframeProps;
-};
+}
 
 export interface ProjectHighlightsProps {
   title?: string;
   list: ProjectHighlightProps[];
-};
+}
 
 export interface ProjectSummaryProps {
   id: ProjectIdType;
@@ -45,17 +45,24 @@ export interface ProjectSummaryProps {
   tagline:Tagline;
   workType: WorkType;
   categories?: Categories;
-};
+}
+
+// TODO - figure out the path file paths to gitlab & bitbucket raw files
+export interface ReadmeFileProps {
+  site: 'github' | 'gitlab' | 'bitbucket';
+  source: string;
+  imageFolderPrefix: string;
+}
 
 export interface ProjectDetailProps {
   id: ProjectIdType;
   name: ProjectName;
-  workType: WorkType;
-  timeframe: TimeframeProps;
   marquee: MarqueeProps;
+  timeframe: TimeframeProps;
   tagline: Tagline;
   description?: Description;
   url?: ProjectUrl;
+  workType: WorkType;
   jobtype?: Jobtype;
   parentProjectId?: ProjectIdType;
   parentProjectName?: ProjectName;
@@ -65,8 +72,9 @@ export interface ProjectDetailProps {
   links?: ExternalLinkProps[],
   highlights?: ProjectHighlightsProps;
   features?: FeaturesType;
-};
+  repoReadmeFile?: ReadmeFileProps;
+}
 
 export interface ProjectsObjectProps {
   [key: string]: ProjectDetailProps;
-};
+}

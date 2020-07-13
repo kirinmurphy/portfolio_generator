@@ -3,7 +3,7 @@ import { useRouter } from 'next/router';
 
 import { ProjectIdType, ProjectsObjectProps } from '../types/project';
 
-import { bindTriggerOverride } from '../utils/bindTriggerOverride';
+import { useTriggerOverride } from '../utils/useTriggerOverride';
 
 import { Popup } from '../widgets/Popup';
 import { ProjectDetail } from '../project_item/ProjectDetail';
@@ -17,7 +17,7 @@ interface Props {
   allProjects: ProjectsObjectProps;
 }
 
-export const ProjectActive: React.FC<Props> = ({ allProjects }) => {
+export function ProjectActive ({ allProjects }: Props): JSX.Element {
   const router = useRouter();
   const projectIdFromUrl = router.query[PROJECT_ID_PARAM] as string;
 
@@ -37,10 +37,10 @@ export const ProjectActive: React.FC<Props> = ({ allProjects }) => {
   useEffect(() => {
     const projectIdFromUrlExists = !!allProjects[projectIdFromUrl];
     setActiveProjectId(projectIdFromUrlExists ? projectIdFromUrl : '');
-  }, [projectIdFromUrl, activeProjectId]);
+  }, [projectIdFromUrl, activeProjectId, allProjects]);
 
   // Hijack links that include a projectId
-  bindTriggerOverride({ 
+  useTriggerOverride({ 
     eventType: 'click', 
     ref: activeProjectRef, 
     condition: ({ eventData }) => {
@@ -62,4 +62,4 @@ export const ProjectActive: React.FC<Props> = ({ allProjects }) => {
       )}
     </div>
   );
-};
+}

@@ -14,16 +14,16 @@ const markdownTypesAllowed: NodeType[] = [
 interface Props {
   source: string;
   useAllowedTypes?: boolean;
-};
+}
 
 interface OptionsProps {
   source: string;
   escapeHtml: boolean;
   allowedTypes?: NodeType[];
   unwrapDisallowed?: boolean;
-};
+}
 
-export const Markdownizer:React.FC<Props> = ({ source, useAllowedTypes = false }) => {  
+export function Markdownizer ({ source, useAllowedTypes = false }: Props): JSX.Element {  
   const options: OptionsProps = {
     source: returnMarkdownWithConvertedProjectLinks(source),
     escapeHtml: false
@@ -37,4 +37,4 @@ export const Markdownizer:React.FC<Props> = ({ source, useAllowedTypes = false }
   return (
     <ReactMarkdown {...options} />
   );
-}; 
+}

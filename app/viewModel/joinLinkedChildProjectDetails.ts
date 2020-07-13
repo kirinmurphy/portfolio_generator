@@ -1,8 +1,8 @@
 import { ProjectsObjectProps, ProjectHighlightProps } from '../components/types/project';
 
-export const joinLinkedChildProjectDetails = (
+export function joinLinkedChildProjectDetails (
   allProjects: ProjectsObjectProps, 
-  projectHighlight: ProjectHighlightProps) => {
+  projectHighlight: ProjectHighlightProps): ProjectHighlightProps {
 
   if ( !projectHighlight.projectId ) { return projectHighlight; }
   
@@ -14,4 +14,4 @@ export const joinLinkedChildProjectDetails = (
     description: projectHighlight.description || childProject.description,
     timeframe: projectHighlight.timeframe || childProject.timeframe
   }
-};
+}

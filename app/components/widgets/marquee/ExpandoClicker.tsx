@@ -1,16 +1,16 @@
 import React from 'react';
 
-export const openActiveImageInNewWindow = (imageUrl: string) => {
-  window.location.href = imageUrl;    
-};
+export function openActiveImageInNewWindow (imageUrl: string | null): void {
+  if ( imageUrl ) { window.location.href = imageUrl; }  
+}
 
 interface Props {
   buttonText: string;
-  clickCallback: any;
+  clickCallback: (arg0: string | null) => void;
   assetUrl: string | null;
 }
 
-export const ExpandoClicker:React.FC<Props> = (props) => {
+export function ExpandoClicker (props: Props): JSX.Element {
 
   const { buttonText, clickCallback, assetUrl = null } = props;
 
@@ -65,4 +65,4 @@ export const ExpandoClicker:React.FC<Props> = (props) => {
       `}</style>
     </>    
   ) : <></>;
-};
+}

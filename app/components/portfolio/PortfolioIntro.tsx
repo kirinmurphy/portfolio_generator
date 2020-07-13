@@ -9,9 +9,9 @@ import { ContactLinks } from './ContactLinks';
 
 interface Props {
   introContent: PersonalInfoProps;
-};
+}
 
-export const PortfolioIntro:React.FC<Props> = ({ introContent }) => {
+export function PortfolioIntro ({ introContent }: Props): JSX.Element {
   const { name, introduction, links } = introContent;
 
   return (
@@ -64,4 +64,4 @@ export const PortfolioIntro:React.FC<Props> = ({ introContent }) => {
       `}</style>    
     </>    
   );
-};
+}

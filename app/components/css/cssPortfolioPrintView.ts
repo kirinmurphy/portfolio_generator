@@ -51,9 +51,13 @@ export const cssPorfolioPrintView = css.global`
     }
 
     .skillsets-list__item {
-      margin-bottom:1rem !important;
+      margin-bottom:.5rem !important;
     }
     
+    .skillset:not(:last-of-type) {
+      margin-bottom:1rem !important;
+    }
+
     .skillset h2 {
       font-size:var(--fontSize-title-small);
     }
@@ -71,6 +75,10 @@ export const cssPorfolioPrintView = css.global`
       width: 100% !important;
       height:auto !important;
       margin:0 !important;
+    }
+
+    .skillset .intro {
+      margin-bottom:.5rem !important;
     }
 
     .skillset-featured-projects .image-wrap {
@@ -92,24 +100,24 @@ export const cssPorfolioPrintView = css.global`
       transform:scale(1) !important;
     }
 
-    #projects .list-wrapper header {
+    #projects header {
       padding:.5rem 0 !important;
       border-bottom:1px solid #999;
     }
 
-    #projects .list-wrapper article + header {
-      padding-top:2rem !important;
+    #projects [data-show-all]:not(:last-of-type) {
+     margin-bottom: 1rem !important;
     }
 
-    #projects .list-wrapper article .project-work-summary {
-      padding:.3rem 0 .5rem 0 !important; 
+    #projects article .project-work-summary {
+      padding:.3rem .5rem !important; 
     }
 
-    #projects .list-wrapper article h3 {
+    #projects article h3 {
       margin-bottom:0;    
     }
 
-    #projects .list-wrapper article * {
+    #projects article * {
       font-size: var(--fontSize-small) !important;  
     }
 `;

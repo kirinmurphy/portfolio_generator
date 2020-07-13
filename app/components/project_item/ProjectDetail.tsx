@@ -3,7 +3,7 @@ import React from 'react';
 import { 
   MSG_LANGUAGES_TITLE,
   MSG_TOOLS_TITLE
- } from '../utils/dictionary';
+} from '../utils/dictionary';
 
 import { ProjectDetailProps } from '../types/project';
 
@@ -19,12 +19,13 @@ import { ProjectHighlights } from './ProjectHighlights';
 import { Features } from './Features';
 import { getProjectPath } from './helperProjectId';
 import { cssProjectDetail } from './projectDetailCss';
+import { MarkdownFile } from '../widgets/MarkdownFile';
 
 interface Props {
   project: ProjectDetailProps;
-};
+}
 
-const ProjectMarquee: React.FC<Props> = ({ project }) => {
+function ProjectMarquee ({ project }: Props): JSX.Element {
   return (
     <div className="marquee" data-project-id={project.id}>
       <Marquee 
@@ -41,9 +42,9 @@ const ProjectMarquee: React.FC<Props> = ({ project }) => {
       `}</style>
     </div>
   );  
-};
+}
 
-export const ProjectDetail: React.FC<Props> = ({ project }) => {
+export function ProjectDetail ({ project }: Props): JSX.Element {
   const {
     marquee,
     url,
@@ -59,7 +60,8 @@ export const ProjectDetail: React.FC<Props> = ({ project }) => {
     tools,
     links,
     highlights,
-    features
+    features,
+    repoReadmeFile
   } = project;
 
   const hasMarquee = hasMarqueeContent(marquee, url);
@@ -94,7 +96,9 @@ export const ProjectDetail: React.FC<Props> = ({ project }) => {
             </section>
 
             <section className="description">
-              <div className="tagline">{tagline}</div>
+              <div className="tagline">
+                <Markdownizer source={tagline} />
+              </div>
 
               {!!description && <Markdownizer source={description} />}
             </section>
@@ -114,10 +118,11 @@ export const ProjectDetail: React.FC<Props> = ({ project }) => {
           </header>
         </div>
 
-        {(highlights || features) && (
+        {(highlights || features || repoReadmeFile) && (
           <div className="expando-panel">
             <ProjectHighlights highlights={highlights} />
             <Features features={features} />
+            {repoReadmeFile && <MarkdownFile {...repoReadmeFile} />}
           </div>
         )}
       </div>
@@ -125,4 +130,4 @@ export const ProjectDetail: React.FC<Props> = ({ project }) => {
       <style jsx>{cssProjectDetail}</style>
     </>
   );
-};
+}

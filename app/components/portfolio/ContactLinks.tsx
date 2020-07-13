@@ -9,7 +9,7 @@ interface Props {
   links?: ContactLinksProps;
 }
 
-export const ContactLinks:React.FC<Props> = ({ links }) => {
+export function ContactLinks ({ links }: Props): JSX.Element {
   return !!links ? (
     <>
       <span className="contact-links">
@@ -30,4 +30,4 @@ export const ContactLinks:React.FC<Props> = ({ links }) => {
       `}</style>    
     </>
   ) : <></>;
-};
+}
