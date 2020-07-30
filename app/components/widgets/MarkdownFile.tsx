@@ -3,7 +3,7 @@ import fetch from 'isomorphic-fetch';
 
 import { ReadmeFileProps } from '../types/project';
 
-import { Markdownizer } from './Markdownizer';
+import { Markdownizer } from 'codethings-react-ui';
 
 export function MarkdownFile ({ 
   site, 
@@ -22,30 +22,42 @@ export function MarkdownFile ({
     .then((text) => {
       const imageFilePrefixMatcher = new RegExp(imageFolderPrefix, "gi");
       const newText = text.replace(imageFilePrefixMatcher, 'samples/');
-      setMdText(newText);
+      setMdText(!!imageFolderPrefix ? newText : text);
     })
     .catch((error) => console.error(error));
 
   return !!mdText ? (
     <div>
-      <span>Readme.md</span>
+      <header>
+        <strong>Readme.md</strong>
+      </header>
       <Markdownizer source={mdText} />
       <style jsx>{`
         div {
-          background:#f6f6f6;
+          background:#fafafa;
           padding:1rem 1.5rem; 
           border-radius:.25rem;
         }
 
-        span {
-          font-weight:bold;
+        div :global(p) {
+          margin-bottom:1rem;
+        }
+
+        div :global(code) {
+          background:#ddd;
+          padding:0 .25rem;
         }
 
         div :global(pre) {
           padding:1rem 2rem;
-          background:#ddd;
           border-radius: .5rem;
           overflow-x: auto;
+        }
+
+        div :global(pre),
+        div :global(pre code) {
+          background:#111118;
+          color:#f8f8f8;
         }
 
         div :global(h1, h2, h3, h4) {
@@ -53,10 +65,6 @@ export function MarkdownFile ({
           font-weight:bold;
         }
 
-        div :global(code) {
-          background:#ddd;
-          padding:0 .25rem;
-        }
 
         div :global(ul) {
           margin-left:2rem;

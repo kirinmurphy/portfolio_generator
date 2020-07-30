@@ -5,17 +5,13 @@ import { ProjectHighlightsProps } from '../types/project';
 
 import { ProjectHighlight } from './ProjectHighlight';
 
-interface Props {
-  highlights?: ProjectHighlightsProps;
-}
-
-export function ProjectHighlights ({ highlights }: Props): JSX.Element {
-  return !!highlights ? (
+export function ProjectHighlights ({ title, list }: ProjectHighlightsProps): JSX.Element {
+  return !!list ? (
     <>
-      {!!highlights.title && <h2 className="name">{highlights.title}</h2>}
+      {!!title && <h2 className="name">{title}</h2>}
 
       <ul className="bulleted">
-        {highlights?.list.map((highlight, index) => (
+        {list.map((highlight, index) => (
           <li key={index}> 
             <ProjectHighlight highlight={highlight} />        
           </li>

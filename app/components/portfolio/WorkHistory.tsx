@@ -3,8 +3,8 @@ import React, { useState } from 'react';
 import { MSG_ALL_PROJECTS_KEY } from '../utils/dictionary';
 
 import { getCategories } from './helperGetCategories'; 
-
 import { CategoryFilter } from '../widgets/CategoryFilter';
+
 import { WorkHistoryProps } from '../types/portfolio';
 import { WorkHistorySubset } from './WorkHistorySubset';
 

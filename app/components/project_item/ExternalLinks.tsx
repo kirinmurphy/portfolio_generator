@@ -29,6 +29,7 @@ export function ExternalLinks ({ links }: Props): JSX.Element {
           width:1.25rem;
           margin-right:.5rem;
           transform:translateY(2px);
+          transform-origin: left center;
         }
 
         .link__project-external :global(.svg-inline--fa[data-icon="mobile-alt"]) {
@@ -36,9 +37,15 @@ export function ExternalLinks ({ links }: Props): JSX.Element {
         }
 
         .link__project-external :global(.svg-inline--fa[data-icon="github-alt"]) {
-          transform:scale(1.3) translateY(3px);
-          margin-right:.8rem;
+          transform:scale(1.3) translateY(2px);
+          margin-right:1rem;
         }
+
+        .link__project-external :global(.svg-inline--fa[data-icon="npm"]) {
+          transform:scale(1.7) translateY(1px);
+          margin-right:1.4rem;
+        }
+
       `}</style>
     </>
   );

@@ -2,7 +2,8 @@ import { LooseObject } from '../components/types/global';
 import { ProjectHighlightProps, ProjectsObjectProps } from '../components/types/project';
 
 import { joinLinkedChildProjectDetails } from './joinLinkedChildProjectDetails';
-import { getFormattedChapters } from '../components/widgets/marquee/videoPlayer/helperGetFormattedChapters';
+import { getFormattedChapters } from 'codethings-react-ui';
+
 
 // TSTODO - this breaks when bind it to the view model stuff
 // beceause the required/optional fields are different btw raw and joined data
@@ -26,6 +27,11 @@ export function formatAndJoinProjectData (allProjects: LooseObject): ProjectsObj
     const video = project.marquee?.video;
     if ( !!video && !!video.chapters ) {
       video.chapters = getFormattedChapters(video.chapters);
+    }
+
+    const iframeMarquee = project.marquee?.type === 'iframe' && project.marquee;
+    if ( !!iframeMarquee ) {
+      iframeMarquee.iframeUrl = project.url;
     }
 
     return { 

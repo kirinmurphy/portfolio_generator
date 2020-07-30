@@ -3,7 +3,7 @@ import React from 'react';
 import { ContactLinksProps } from '../types/portfolio';
 
 import { ContactLinks } from "./ContactLinks";
-import { Markdownizer } from '../widgets/Markdownizer';
+import { PortfolioMarkdownizer } from './PortfolioMarkdownizer';
 
 interface Props {
   links?: ContactLinksProps;
@@ -14,7 +14,7 @@ export function PortfolioFooter ({ links, footerCallToAction }: Props): JSX.Elem
   return (
     <>
       <div className="footer-call-to-action">
-        <Markdownizer source={footerCallToAction || ''} />
+        <PortfolioMarkdownizer source={footerCallToAction || ''} />
       </div>
       <div className="footer-contact-links-wrapper">
         <ContactLinks links={links} />

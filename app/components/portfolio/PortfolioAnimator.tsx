@@ -22,7 +22,7 @@ import { MSG_PORTFOLIO_LOADING } from '../utils/dictionary';
 import { 
   wasLastVisitEarlierThan, 
   storeCurrentVisitTimestamp 
-} from './helperLastViewed';
+} from '../utils/helperLastViewed';
 
 import { 
   resetScrollPosition, 

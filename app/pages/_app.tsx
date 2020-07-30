@@ -1,4 +1,5 @@
 import React from 'react';
+import 'codethings-react-ui/dist/styles.css';
 
 import { AppProps } from 'next/app';
 import Head from "next/head";  

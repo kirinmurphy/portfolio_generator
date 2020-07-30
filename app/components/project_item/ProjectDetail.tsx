@@ -7,41 +7,26 @@ import {
 
 import { ProjectDetailProps } from '../types/project';
 
-import { Markdownizer } from '../widgets/Markdownizer';
-import { BackLink } from '../widgets/BackLink';
-import { Marquee, hasMarqueeContent } from '../widgets/marquee/Marquee';
-import { CommaSeparatedList } from '../widgets/CommaSeparatedList';
-import { Timeframe } from '../widgets/Timeframe';
+import { 
+  CommaSeparatedList, 
+  Multimediaizer,
+  hasMultimediaContent,
+  BackLink
+} from 'codethings-react-ui';
 
-import { OptionallyLinkedTitle } from './OptionallyLinkedTitle';
+import { Timeframe } from '../widgets/Timeframe';
+import { OptionallyLinkedTitle } from '../widgets/OptionallyLinkedTitle';
 import { ExternalLinks } from './ExternalLinks';
+import { MarkdownFile } from '../widgets/MarkdownFile';
+
+import { PortfolioMarkdownizer } from '../portfolio/PortfolioMarkdownizer';
+
 import { ProjectHighlights } from './ProjectHighlights';
-import { Features } from './Features';
 import { getProjectPath } from './helperProjectId';
 import { cssProjectDetail } from './projectDetailCss';
-import { MarkdownFile } from '../widgets/MarkdownFile';
 
 interface Props {
   project: ProjectDetailProps;
-}
-
-function ProjectMarquee ({ project }: Props): JSX.Element {
-  return (
-    <div className="marquee" data-project-id={project.id}>
-      <Marquee 
-        marquee={project.marquee}
-        iframeUrl={project.url}
-      />
-      <style jsx>{`
-        .marquee {
-          position:relative;
-          padding-bottom:60%;
-          margin-bottom:.8rem; 
-          border:1px solid #ddd;
-        }
-      `}</style>
-    </div>
-  );  
 }
 
 export function ProjectDetail ({ project }: Props): JSX.Element {
@@ -60,22 +45,25 @@ export function ProjectDetail ({ project }: Props): JSX.Element {
     tools,
     links,
     highlights,
-    features,
     repoReadmeFile
   } = project;
 
-  const hasMarquee = hasMarqueeContent(marquee, url);
+  const hasMarquee = hasMultimediaContent(marquee);
 
   return (
     <>
       <div className="project-wrapper panel panel--default">
         <BackLink />
-        
+
         <div className="main-content" 
           data-has-marquee={hasMarquee}
           data-fullscreen-marquee={marquee?.fullscreen || false}>
           
-          {hasMarquee && <ProjectMarquee project={project} />}
+          {hasMarquee && (
+            <div className="marquee" data-project-id={project.id}>
+              <Multimediaizer {...project.marquee} />
+            </div>
+          )}
 
           <header>
             <h3>
@@ -97,10 +85,10 @@ export function ProjectDetail ({ project }: Props): JSX.Element {
 
             <section className="description">
               <div className="tagline">
-                <Markdownizer source={tagline} />
+                <PortfolioMarkdownizer source={tagline} />
               </div>
 
-              {!!description && <Markdownizer source={description} />}
+              {!!description && <PortfolioMarkdownizer source={description} />}
             </section>
 
             {(!!languages || !!tools) && (
@@ -118,11 +106,10 @@ export function ProjectDetail ({ project }: Props): JSX.Element {
           </header>
         </div>
 
-        {(highlights || features || repoReadmeFile) && (
+        {(!!highlights || !!repoReadmeFile) && (
           <div className="expando-panel">
-            <ProjectHighlights highlights={highlights} />
-            <Features features={features} />
-            {repoReadmeFile && <MarkdownFile {...repoReadmeFile} />}
+            {!!highlights && <ProjectHighlights {...highlights} />}
+            {!!repoReadmeFile && <MarkdownFile {...repoReadmeFile} />}
           </div>
         )}
       </div>

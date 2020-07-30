@@ -3,11 +3,10 @@ import { useRouter } from 'next/router';
 
 import { ProjectIdType, ProjectsObjectProps } from '../types/project';
 
-import { useTriggerOverride } from '../utils/useTriggerOverride';
+import { useTriggerOverride, Popupizer } from 'codethings-react-ui';
 
-import { Popup } from '../widgets/Popup';
 import { ProjectDetail } from '../project_item/ProjectDetail';
-import { AssetActive } from './AssetActive';
+import { AssetActive } from '../widgets/AssetActive';
 import { 
   triggeredLinkIncludesProjectId, 
   PROJECT_ID_PARAM, 
@@ -23,16 +22,10 @@ export function ProjectActive ({ allProjects }: Props): JSX.Element {
 
   const [activeProjectId, setActiveProjectId] = useState<ProjectIdType>('');
   const activeProject = allProjects[activeProjectId];
-
   const activeProjectRef = useRef<HTMLDivElement>(null);
 
-  const clearActiveProject = () => {
-    router.push('/');
-  };
-
-  const updateActiveProject = (linkHref: string) => {
-    router.push(`/${linkHref}`);
-  };
+  const clearActiveProject = () => router.push('/');
+  const updateActiveProject = (linkHref: string) =>  router.push(`/${linkHref}`);
 
   useEffect(() => {
     const projectIdFromUrlExists = !!allProjects[projectIdFromUrl];
@@ -55,10 +48,10 @@ export function ProjectActive ({ allProjects }: Props): JSX.Element {
   return (
     <div ref={activeProjectRef}>
       {!!activeProjectId && (
-        <Popup closeAction={clearActiveProject}>
+        <Popupizer closeAction={clearActiveProject}>
           <ProjectDetail project={activeProject} /> 
           <AssetActive /> 
-        </Popup>
+        </Popupizer>
       )}
     </div>
   );

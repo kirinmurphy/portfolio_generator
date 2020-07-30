@@ -1,8 +1,11 @@
 import React from 'react';
 
-import { CategoryDisplayProps } from '../types/widgets';
+import { Dropdownizer } from 'codethings-react-ui';
 
-import { Dropdown } from './Dropdown';
+export interface CategoryDisplayProps {
+  name: string;
+  count: number;
+}
 
 interface Props {
   categories: CategoryDisplayProps[];
@@ -12,22 +15,21 @@ interface Props {
 
 export function CategoryFilter (props: Props): JSX.Element {
   const { categories, updateCallback, activeCategory } = props;
+  
   return (
-    <>
-      <Dropdown
-        title={getActiveCategoryTitle(categories, activeCategory)}
-        content={categories.map((category, index) => {
-          const isActive = activeCategory === category.name;
-          return !isActive ? (
-            <div key={index} className="dropdown-item"
-              onClick={() => { updateCallback(category.name); }}>
+    <Dropdownizer
+      title={getActiveCategoryTitle(categories, activeCategory)}
+      content={categories.map((category, index) => {
+        const isActive = activeCategory === category.name;
+        return !isActive ? (
+          <div key={index} className="dropdown-item"
+            onClick={() => { updateCallback(category.name); }}>
 
-              {category.name} ({category.count})
-            </div>
-          ) : <React.Fragment key={index} />;
-        })}
-      />
-    </>
+            {category.name} ({category.count})
+          </div>
+        ) : <React.Fragment key={index} />;
+      })}
+    />
   );
 }
 

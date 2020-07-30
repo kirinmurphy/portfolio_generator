@@ -11,6 +11,7 @@ import '../utils/fontAwesomeLibrary';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import { ProjectList } from './ProjectList';
+import { faArrowsAltV } from '@fortawesome/free-solid-svg-icons';
 
 interface Props {
   workType: WorkType;
@@ -49,14 +50,14 @@ export function WorkHistorySubset (props: Props): JSX.Element {
         <div className="show-all" onClick={() => toggleShowAll(true)}>
           <span>
             {MSG_SHOW_ALL_IN_LIST_TRIGGER}
-            <FontAwesomeIcon icon={['fas', 'chevron-circle-down']} />
+            <FontAwesomeIcon icon={faArrowsAltV} />
           </span>
         </div>      
       )}
 
       <style jsx>{`
         .show-all {
-          padding:.5rem 1rem;    
+          padding:.5rem 1.5rem;    
           text-align:right;
           cursor:pointer;
           background: var(--color-bluegray-light);
@@ -67,22 +68,18 @@ export function WorkHistorySubset (props: Props): JSX.Element {
           background: var(--color-bluegray-lighter);
         }
 
-        .show-all :global(.svg-inline--fa) {
-          color:var(--textcolor-light);
-        }
-
-        .show-all:hover :global(.svg-inline--fa) {
-          color:var(--textcolor-base);
-        }
-
         .show-all > span {
           font-size:var(--fontSize-bump);
         }
 
         .show-all > span :global(.svg-inline--fa) {
-          width:var(--fontSize-bump);
-          margin-left:.5rem;
-          transform:translateY(.2rem);
+          width:.45rem;
+          margin-left:.6rem;
+          transform:translateY(1px);
+        }
+
+        .show-all:hover > span :global(.svg-inline--fa) {
+          color:var(--textcolor-base);
         }
 
         @media screen {

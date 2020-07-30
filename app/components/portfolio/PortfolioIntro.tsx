@@ -4,7 +4,7 @@ import { PersonalInfoProps } from '../types/portfolio';
 
 import { breakpointMiddle } from '../../portfolioData/cssVariables';
 
-import { Markdownizer } from '../widgets/Markdownizer';
+import { PortfolioMarkdownizer } from './PortfolioMarkdownizer';
 import { ContactLinks } from './ContactLinks';
 
 interface Props {
@@ -22,7 +22,7 @@ export function PortfolioIntro ({ introContent }: Props): JSX.Element {
       </header>
 
       <div className="introduction">
-        <Markdownizer source={introduction} />
+        <PortfolioMarkdownizer source={introduction} />
       </div>
 
       <style jsx>{`

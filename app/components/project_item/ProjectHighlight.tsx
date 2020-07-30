@@ -2,9 +2,10 @@ import React from 'react';
 
 import { ProjectHighlightProps } from '../types/project';
 
-import { OptionallyLinkedTitle } from './OptionallyLinkedTitle';
+import { OptionallyLinkedTitle } from '../widgets/OptionallyLinkedTitle';
 import { Timeframe } from '../widgets/Timeframe';
-import { Markdownizer } from '../widgets/Markdownizer';
+
+import { PortfolioMarkdownizer } from '../portfolio/PortfolioMarkdownizer';
 import { getProjectPath } from './helperProjectId';
 
 interface Props {
@@ -29,7 +30,7 @@ export function ProjectHighlight ({ highlight }: Props): JSX.Element {
         <header>
           <h4>
             {!!possibleLinkUrl && <OptionallyLinkedTitle name={name} url={possibleLinkUrl} />}
-            {!possibleLinkUrl && <Markdownizer source={name} />}
+            {!possibleLinkUrl && <PortfolioMarkdownizer source={name} />}
           </h4>
 
           {!!timeframe && (
@@ -41,7 +42,7 @@ export function ProjectHighlight ({ highlight }: Props): JSX.Element {
       )}
       
       <div className="highlight-desc">
-        <Markdownizer source={description || ''} />
+        <PortfolioMarkdownizer source={description || ''} />
       </div>
 
       <style jsx>{`
@@ -53,7 +54,9 @@ export function ProjectHighlight ({ highlight }: Props): JSX.Element {
           margin-right:.5rem; 
         }
 
-        .highlight-desc :global(a) { display:inline-block; }
+        .highlight-desc :global(a) { 
+          display:inline-block; 
+        }
 
         .highlight-desc :global(img) {
           max-width:100%;

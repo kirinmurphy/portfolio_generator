@@ -1,22 +1,24 @@
 import { IconProp } from '@fortawesome/fontawesome-svg-core';
 
 import { 
-  TimeframeProps,
-  CommaSeparatedListProps,
-  MarqueeProps
-} from './widgets';
+  CommaSeparatedListCollectionType,
+  MultimediaizerProps } from 'codethings-react-ui';
 
 export type ProjectIdType = string;
 export type ProjectName = string;
 export type ProjectUrl = string;
 export type Tagline = string;
 export type WorkType = 'job' | 'solo' | 'multi_project';
-export type FeaturesType = string[];
 export type Categories = string[];
 
 type Jobtype = string;
 type Role = string;
 type Description = string;
+
+export interface TimeframeProps {
+  end: number | string;
+  start: number | string;
+}
 
 export interface ExternalLinkProps {
   name: string;
@@ -57,7 +59,7 @@ export interface ReadmeFileProps {
 export interface ProjectDetailProps {
   id: ProjectIdType;
   name: ProjectName;
-  marquee: MarqueeProps;
+  marquee: MultimediaizerProps;
   timeframe: TimeframeProps;
   tagline: Tagline;
   description?: Description;
@@ -67,11 +69,10 @@ export interface ProjectDetailProps {
   parentProjectId?: ProjectIdType;
   parentProjectName?: ProjectName;
   role?: Role;
-  languages?: CommaSeparatedListProps;
-  tools?: CommaSeparatedListProps;
+  languages?: CommaSeparatedListCollectionType;
+  tools?: CommaSeparatedListCollectionType;
   links?: ExternalLinkProps[],
   highlights?: ProjectHighlightsProps;
-  features?: FeaturesType;
   repoReadmeFile?: ReadmeFileProps;
 }
 

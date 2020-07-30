@@ -1,13 +1,14 @@
 import React, { useState, useRef } from 'react';
 
 import { MSG_OPEN_IN_NEW_WINDOW } from '../utils/dictionary';
-import { useTriggerOverride } from '../utils/useTriggerOverride';
 
-import { Popup } from '../widgets/Popup';
 import { 
-  openActiveImageInNewWindow, 
+  useTriggerOverride, 
+  Popupizer, 
+  openActiveImageInNewWindow,
   ExpandoClicker
-} from '../widgets/marquee/ExpandoClicker';
+} from 'codethings-react-ui';
+
 
 export function AssetActive (): JSX.Element {
   const [activeAssetUrl, setActiveAssetUrl] = useState<string>('');
@@ -15,7 +16,6 @@ export function AssetActive (): JSX.Element {
   
   const assetIsPdf = activeAssetUrl?.split('.')[1] === 'pdf';
 
-  // Hijack links in markdown that link to assets
   useTriggerOverride({ 
     eventType: 'click', 
     ref: activeAssetRef, 
@@ -31,7 +31,7 @@ export function AssetActive (): JSX.Element {
     <>
       <div ref={activeAssetRef} className="uses-expando-trigger">
         {!!activeAssetUrl && (
-          <Popup closeAction={() => { setActiveAssetUrl(''); }}>
+          <Popupizer closeAction={() => { setActiveAssetUrl(''); }}>
             {assetIsPdf ? <embed src={activeAssetUrl} /> : <></>}
             {!assetIsPdf ? <img src={activeAssetUrl} />: <></>}
 
@@ -40,7 +40,7 @@ export function AssetActive (): JSX.Element {
               clickCallback={openActiveImageInNewWindow} 
               assetUrl={activeAssetUrl}
             />
-          </Popup>
+          </Popupizer>
         )}
       </div>
       <style jsx>{`

@@ -1,7 +1,7 @@
 import { MSG_ALL_PROJECTS_KEY } from '../utils/dictionary';
 
 import { Categories, ProjectSummaryProps } from '../types/project';
-import { CategoryDisplayProps } from '../types/widgets';
+import { CategoryDisplayProps } from '../widgets/CategoryFilter';
 
 interface CategoryCountsProps {
   [key: string]: number;

@@ -5,6 +5,7 @@ import {
   faCircleNotch,
   faTimes,
   faAngleLeft,
+  faArrowsAltV,
   faPlay,
   faPause,
   faBackward,
@@ -22,7 +23,8 @@ import {
 import { 
   faGithubSquare, 
   faGithubAlt,
-  faLinkedin 
+  faLinkedin,
+  faNpm
 } from "@fortawesome/free-brands-svg-icons";
 
 library.add(
@@ -30,6 +32,7 @@ library.add(
   faCircleNotch,
   faTimes,
   faAngleLeft,
+  faArrowsAltV,
   faPlay,
   faPause,
   faBackward,
@@ -44,5 +47,6 @@ library.add(
   faColumns,
   faFlask,
   faSquareRootAlt,
-  faChevronCircleDown
+  faChevronCircleDown,
+  faNpm
 );

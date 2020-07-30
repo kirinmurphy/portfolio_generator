@@ -15,6 +15,13 @@ export const cssProjectDetail = css`
     font-size:var(--fontSize-title-medium); 
   }
 
+  .marquee {
+    position:relative;
+    padding-bottom:60%;
+    margin-bottom:.8rem; 
+    border:1px solid #ddd;
+  }
+
   section:not(:last-of-type) { 
     padding-bottom:var(--project-detail-desc-gutter); 
   }
@@ -33,6 +40,15 @@ export const cssProjectDetail = css`
     border-top:1px solid #ccc;
   }
 
+  .languages-and-tools :global(.comma-separated-list) { 
+    margin-bottom:.2rem;
+  }
+  
+  .languages-and-tools :global(.comma-separated-list strong) { 
+    color:var(--textcolor-dark); 
+  }
+
+  .external-links :global(.fa-npm),
   .external-links :global(.fa-github-alt) {
     margin-left:.25rem;
   }

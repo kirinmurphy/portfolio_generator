@@ -1,4 +1,4 @@
-import { TimeframeProps } from './widgets';
+import { TimeframeProps } from './project';
 
 import { 
   ProjectIdType,

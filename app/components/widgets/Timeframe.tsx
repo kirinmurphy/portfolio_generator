@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { TimeframeProps } from '../types/widgets';
+import { TimeframeProps } from '../types/project';
 
 interface Props {
   timeframe: TimeframeProps;

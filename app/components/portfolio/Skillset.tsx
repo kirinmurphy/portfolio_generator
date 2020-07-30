@@ -4,7 +4,7 @@ import { SkillsetProps } from '../types/portfolio';
 
 import { breakpointMobile, breakpointDesktop } from '../../portfolioData/cssVariables';
 
-import { Markdownizer } from '../widgets/Markdownizer';
+import { PortfolioMarkdownizer } from './PortfolioMarkdownizer';
 import { SkillsetFeaturedProject } from './SkillsetFeaturedProject';
 
 interface Props {
@@ -28,7 +28,7 @@ export function Skillset ({ skillset }: Props): JSX.Element {
         <div className="content">
           {intro && (
             <div className="intro panel panel--inverted">
-              <Markdownizer source={intro} />
+              <PortfolioMarkdownizer source={intro} />
             </div>
           )}
 
