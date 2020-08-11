@@ -7,6 +7,15 @@ export const cssProjectDetail = css`
     padding:var(--gutter-active-project);
   }
 
+  .project-wrapper :global(.back-link) {
+    position:relative;
+    top:-.75rem;
+  }
+
+  .project-wrapper :global(.back-link svg) {
+    margin-bottom:-0.35rem;
+  }
+
   header { 
     padding-top:.5rem; 
   }

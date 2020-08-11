@@ -23,11 +23,21 @@ export function PortfolioIntro ({ introContent }: Props): JSX.Element {
 
       <div className="introduction">
         <PortfolioMarkdownizer source={introduction} />
+        <a className="portfolio-link" href="//portfolio.codethings.net">portfolio.codethings.net</a>
       </div>
 
       <style jsx>{`
         header {
           margin-bottom:.75rem;
+        }
+
+        .portfolio-link {
+          display:none;
+          font-size:var(--fontSize-bump);
+        }
+
+        @media print {
+          .portfolio-link { display:block; } 
         }
 
         header > * {

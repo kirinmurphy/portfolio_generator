@@ -37,12 +37,15 @@ export const cssPorfolioPrintView = css.global`
       font-size:var(--fontSize-title-big) !important;
     }
 
-    #portfolio-intro p:not(:last-of-type) {
-      margin-bottom:.5rem !important;
+    #portfolio-intro .introduction {
+      font-size:var(--fontSize-base) !important;
     }
 
-    .skillset .intro,
-    #portfolio-intro .introduction {
+    #portfolio-intro p:not(:last-of-type) {
+      margin-bottom:0rem !important;
+    }
+
+    .skillset .intro {
       font-size:var(--fontSize-small) !important;
     }
 
@@ -51,20 +54,26 @@ export const cssPorfolioPrintView = css.global`
     }
 
     .skillsets-list__item {
-      margin-bottom:.5rem !important;
+      margin-bottom:1rem !important;
+    }
+
+    .skillset-list__item:last-child {
+      margin-bottom:0 !important;
     }
     
-    .skillset:not(:last-of-type) {
-      margin-bottom:1rem !important;
+    // TODO - this can be incorportated into the panel BEM
+    #portfolio-intro a,
+    .skillset a {
+      color:var(--textcolor-link) !important;
+      text-decoration:none !important;
     }
 
     .skillset h2 {
       font-size:var(--fontSize-title-small);
     }
 
-    .skillset a {
-      color:var(--textcolor-link) !important;
-      text-decoration:none !important;
+    .skillset .intro {
+      margin-bottom:.2rem !important;
     }
 
     .skillset ul {
@@ -75,10 +84,6 @@ export const cssPorfolioPrintView = css.global`
       width: 100% !important;
       height:auto !important;
       margin:0 !important;
-    }
-
-    .skillset .intro {
-      margin-bottom:.5rem !important;
     }
 
     .skillset-featured-projects .image-wrap {
@@ -92,13 +97,19 @@ export const cssPorfolioPrintView = css.global`
 
     .skillset-featured-projects .content > * {
       display:inline-block !important;
-      margin-right: .5rem;
+      margin: 0 .5rem 0 0;
       font-size:var(--fontSize-small) !important;
     }
 
     .skillset-featured-projects a:hover {
       transform:scale(1) !important;
     }
+
+    #projects {
+      transform:translateY(-1rem);
+    }
+
+    #projects [data-show-all]:last-of-type { display:none; }
 
     #projects header {
       padding:.5rem 0 !important;
@@ -110,14 +121,17 @@ export const cssPorfolioPrintView = css.global`
     }
 
     #projects article .project-work-summary {
-      padding:.3rem .5rem !important; 
+      padding:.3rem 0 .5rem 0 !important; 
     }
 
     #projects article h3 {
       margin-bottom:0;    
-    }
-
-    #projects article * {
       font-size: var(--fontSize-small) !important;  
     }
+
+    .text__small,
+    #projects article .project-work-summary .tagline {
+      font-size: .7rem !important;  
+    }
+  }
 `;

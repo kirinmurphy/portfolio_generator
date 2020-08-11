@@ -6,10 +6,6 @@ import {
   faTimes,
   faAngleLeft,
   faArrowsAltV,
-  faPlay,
-  faPause,
-  faBackward,
-  faForward,
   faList,
   faEnvelopeSquare,
   faMobileAlt,
@@ -17,7 +13,8 @@ import {
   faColumns,
   faFlask,
   faSquareRootAlt,
-  faChevronCircleDown
+  faChevronCircleDown,
+  faDesktop
 } from "@fortawesome/free-solid-svg-icons";
 
 import { 
@@ -33,10 +30,6 @@ library.add(
   faTimes,
   faAngleLeft,
   faArrowsAltV,
-  faPlay,
-  faPause,
-  faBackward,
-  faForward,
   faList,
   faEnvelopeSquare,
   faGithubSquare, 
@@ -48,5 +41,6 @@ library.add(
   faFlask,
   faSquareRootAlt,
   faChevronCircleDown,
-  faNpm
+  faNpm,
+  faDesktop
 );
