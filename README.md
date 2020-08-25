@@ -5,7 +5,8 @@
 ```
 {
   name: "Guy Person",
-  introduction: "hi. hire me because of this and this and this."
+  introduction: "hi. hire me because of this and this and this.",
+  title: "Assistant to the General Manager",
   contactLinks: {
     email: 'guyperson@gmail.com',
     linkedin: '//www.linkedin.com/in/guyperson',
@@ -29,34 +30,6 @@
 }
 ```
 
-### Skillsets
-Grouping of projects by specialty or interest 
-
-```
-[
-  {
-    title: "Specialty or Interest",
-    description: "Something about the thing.",
-    featured: [
-      { 
-        projectId: 'someProjectId',
-        thumb: 'thumbnail-image-file.png'  
-      },
-      {
-        projectId: 'anotherProjectId',
-        thumb: 'thumbnail-image-file.png'  
-        tagline: 'overrides related project tagline',
-        url: 'www.overrides-direct-link-to-project.com'
-      }
-    ]
-  },
-  ...
-]
-```
-The projectId will pull in the `tagline`, `workType` and `timeframe` of the related project.    
-Optional overrides can be added for the `url` and `tagline`.
-
-
 ### Work History 
 Chronological history of projects grouped by paid and solo work
 ```
@@ -69,48 +42,52 @@ Chronological history of projects grouped by paid and solo work
 }
 ```
 
-Optional max view limit on init 
-```
-{
-  maxProjectsOnInit: {
-    maxJobProjects: 2,
-    maxSoloProjects: 4
-  },
-  projectList: [...]
-}
-```
-
 
 ## Project Data
 required
 ```
 name: "Project name",
 tagline: "Short explanation of company or project for summaries",
-workType: "job", "solo", or "multi_project"
+workType: "job", "contract" or "solo"
 timeframe: {
   start: 2010,
-  end: 2012  // or "Present"
+  end: "Present"
 }
 ```
 
 optional
 ```
 url: "url-of-company-or-project-demo.com",
+detailOverrideUrl: "skip-the-detail-popup-and-go-directly-here.com",
 role: "Assistant to the general manager",
-jobtype: "Freelance, Full Time, Solo Project etc.",
-description: "More detailed description for project view",
+description: "Detailed description of project or job",
 tools: ["Excel", "Jira", "Photoshop"]
 languages: ["html", "react", "python"],
 links" [
   { name:"Code", url: "github.com/repo", icon: "github-alt" },
   { name:"Slack group", url: "slack.com/somegroup", icon: "slack" }
 ],
-categories: more below,
+marquee: more below,
 parentProjectId: more below,
 highlgihts: more below,
-marquee: more below,
 repoReadmeFile: more below,
 ```
+
+
+### workType flag
+```
+"workType": "job"
+```
+Groups projects by `job`, `contract` or `solo`.
+
+![Work History Grouping](https://github.com/kirinmurphy/portfolio_generator/blob/master/notes/readme-screenshots/workHistoryFilteredByWorkType.png)
+
+
+### Marquee
+Each project can include a multimedia section displaying either an image slideshow, iframe, or video with chapters.   
+
+Multimediazer widget readme [here](https://github.com/kirinmurphy/codethings-react-ui)
+
 
 ### parentProjectId
 Adds a link in the project header to the parent project. 
@@ -138,30 +115,6 @@ highlights: {
 ![Linked Project Highlight](https://github.com/kirinmurphy/portfolio_generator/blob/master/notes/readme-screenshots/linkedHighlight.png)
 
 
-### workType flag
-```
-"workType": "job"
-```
-- `job` & `solo` will be grouped in work history
-- `multi_project` will not display a timeframe in skillsets & does not display in work history  
-
-![Work History Grouping](https://github.com/kirinmurphy/portfolio_generator/blob/master/notes/readme-screenshots/workHistoryFilteredByWorkType.png)
-
-
-### category keywords
-Project category keywords are aggregated in a filter option on the Work History list. 
-```
-categories: ["Product Design", "Data Driven Apps"]
-```
-![Category Dropdown](https://github.com/kirinmurphy/portfolio_generator/blob/master/notes/readme-screenshots/categoryDropdown.png)
-
-
-### Multimediazier
-Each project can include a multimedia section displaying either an image slideshow, iframe, or video with chapters.   
-
-Multimediazer widget readme [here](https://github.com/kirinmurphy/codethings-react-ui)
-
-
 ### repoReadmeFile
 Link a readme file from your project's (github, gitlab or bitbucket) repo
 ```
@@ -183,7 +136,6 @@ and copy the image files to in `public/samples/readme_images`
 - Markdown supported in:
     - portfolioIntro: `introduction` and `footerCallToAction`
     - projects: `description`, `features`, `highlight.name`, `highlight.description`, `tools` and `languages`
-    - skillsets: `skillset.intro`
 - Persistent project links via `?project=projectId`
 - Link hijacking opens all project and asset links in popup (including in markdown)
 - Formatted resume print view
@@ -197,7 +149,7 @@ and copy the image files to in `public/samples/readme_images`
 ### Images/Files
 - slideshow images: `public/images/screenshots`
   - folders for `/full` and `/small` return images for different screen sizes
-- skillset thumbnails: `public/images/thumbs`
+- thumbnails: `public/images/thumbs`
 - anything else linked from markdown (other images, pdf, video, etc): `public/samples`
 - favicon: `public/favicon`
 

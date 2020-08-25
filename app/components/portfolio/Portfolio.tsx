@@ -5,10 +5,10 @@ import { PortfolioProps } from '../types/portfolio';
 import { cssPorfolioPrintView } from '../css/cssPortfolioPrintView';
 
 import { PortfolioIntro  } from './PortfolioIntro';
-import { SkillsetList } from './SkillsetList';
 import { WorkHistory } from './WorkHistory';
 import { PortfolioFooter } from './PortfolioFooter';
 import { ProjectActive } from './ProjectActive';
+import { breakpointMobile } from '../../portfolioData/cssVariables';
 
 interface Props {
   portfolioData: PortfolioProps;
@@ -17,17 +17,11 @@ interface Props {
 export function Portfolio ({ portfolioData }: Props): JSX.Element {
   return (
     <>
-      <section id="portfolio-intro" className="panel panel--inverted">
+      <section id="portfolio-intro">
         <div className="inner">
-          <PortfolioIntro introContent={portfolioData.personalInfo} />
+          <PortfolioIntro {...portfolioData.personalInfo} />
         </div>
       </section>
-      <section id="skillsets">
-        <div className="inner">
-          <SkillsetList skillsets={portfolioData.skillsets} />
-        </div>
-      </section>
-
       <section id="projects">
         <div className="inner">
           <WorkHistory workHistory={portfolioData?.workHistory} />
@@ -45,36 +39,51 @@ export function Portfolio ({ portfolioData }: Props): JSX.Element {
       <ProjectActive allProjects={portfolioData.allProjects} />
 
       <style jsx>{`
+        body {
+          background:var(--bg-panel-footer);
+        }
+
         .inner {
           max-width: var(--body-max-width);
-          padding: var(--gutter-page-section); 
+          padding: 0 var(--gutter-page-section); 
           margin-left:auto;
           margin-right:auto;
         }
 
         #portfolio-intro {
-          padding:var(--intro-vertical-offset) 0;
-          color:#fff;
-        }
-
-        #skillsets {
-          color:#fff;
-          background:var(--bg-panel-skillsets);
-          box-shadow: 0 0 20px rgba(30, 30, 30, .4);
+          padding:2rem 0 1rem 0;
         }
 
         #projects {
-          background:#fff;
-        }
-
-        #projects .inner {
-          padding: var(--gutter-project-list);
+          padding: 1rem 0 2rem 0;
         }
 
         #page-footer {
-          padding:2rem 1rem 4rem 1rem;
+          padding:4rem 1rem;
           background:var(--bg-panel-footer);
           color:#fff;
+        }
+
+        @media(max-width:${breakpointMobile}) {
+          #projects > .inner {
+            padding:0;
+          }
+
+          #projects > .inner :global(.subset-wrapper > header),
+          #projects > .inner :global(.subset-wrapper > article) {
+            padding-left:var(--gutter-page-section);
+            padding-right:var(--gutter-page-section);
+          }
+
+          #projects > .inner :global(.subset-wrapper) {
+            margin-bottom:0;
+          }
+
+          #projects > .inner :global(.subset-wrapper > header) {
+            padding-top:.3rem;
+            border-bottom:0;
+            background:#eee;
+          }
         }
       `}
       </style>

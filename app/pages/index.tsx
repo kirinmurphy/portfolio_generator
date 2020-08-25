@@ -4,7 +4,6 @@ import portfolioData from '../viewModel/portfolioData';
 
 import { Layout } from '../components/Layout';
 import { Portfolio } from '../components/portfolio/Portfolio';
-import { PortfolioAnimator } from '../components/portfolio/PortfolioAnimator';
 import { LooseObject } from '../components/types/global';
 
 interface Props {
@@ -14,9 +13,7 @@ interface Props {
 export default function Page ({ portfolioData }: Props): JSX.Element { 
   return (
     <Layout>
-      <PortfolioAnimator>
-        <Portfolio portfolioData={JSON.parse(portfolioData)} />
-      </PortfolioAnimator>
+      <Portfolio portfolioData={JSON.parse(portfolioData)} />
     </Layout>
   );
 }

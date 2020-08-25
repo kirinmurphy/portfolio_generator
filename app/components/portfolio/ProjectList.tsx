@@ -1,41 +1,37 @@
 import React from 'react';
 
-import { MSG_ALL_PROJECTS_KEY } from '../utils/dictionary';
 import { ProjectSummaryProps } from '../types/project';
 
 import { ProjectWorkSummary } from '../project_item/ProjectWorkSummary';
 
 interface Props {
   projects: ProjectSummaryProps[];
-  activeCategory: string;
   title: string;
 }
 
-export function ProjectList ({ projects, activeCategory, title }: Props): JSX.Element {
-  return hasActiveItems(activeCategory, projects) ? (
+export function ProjectList ({ projects, title }: Props): JSX.Element {
+  return (
     <>
       <header>
         <h3>{title}</h3>
       </header>
 
       {projects.map((project, index) => (
-        <article key={index} 
-          data-is-active={`${showProject(activeCategory, project)}`}>
-          
+        <article key={index}>
           <ProjectWorkSummary project={project} />          
         </article>
       ))}
 
       <style jsx>{`
         header {
-          padding:.5rem 1rem; 
-          background:var(--bg-panel-light);
-          border-bottom:1px solid #e4e4e4;
+          padding-bottom:.25rem; 
+          border-bottom:1px solid #bbb;
         }
 
         h3 {
-          font-size:var(--fontSize-highlight);
+          font-size:var(--fontSize-title-small);
           font-weight:bold;
+          color:#444;
         }
 
         article:not(:last-of-type) { 
@@ -47,17 +43,5 @@ export function ProjectList ({ projects, activeCategory, title }: Props): JSX.El
         }
       `}</style>
     </>
-  ) : <></>;  
-}
-
-function showProject (activeCategory: string, project: ProjectSummaryProps) {
-  const showAll = activeCategory === MSG_ALL_PROJECTS_KEY;
-  const matchesActiveCategory = project.categories?.includes(activeCategory);
-  return showAll || matchesActiveCategory;
-}
-
-function hasActiveItems (activeCategory: string, projects: ProjectSummaryProps[]) {
-  return projects.filter(project => {
-    return showProject(activeCategory, project);
-  }).length > 0;
+  );  
 }

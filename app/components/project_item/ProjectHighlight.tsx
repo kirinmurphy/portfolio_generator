@@ -7,6 +7,7 @@ import { Timeframe } from '../widgets/Timeframe';
 
 import { PortfolioMarkdownizer } from '../portfolio/PortfolioMarkdownizer';
 import { getProjectPath } from './helperProjectId';
+import { ContentWithThumbnail } from '../widgets/ContentWithThumbnail';
 
 interface Props {
   highlight: ProjectHighlightProps;
@@ -14,36 +15,42 @@ interface Props {
 
 export function ProjectHighlight ({ highlight }: Props): JSX.Element {
   const {
+    id,
     projectId,
     url,
     name,
     timeframe,
-    description
+    description,
+    thumb
   } = highlight;
 
   const possibleProjectIdPath = !!projectId ? getProjectPath(projectId) : null;
   const possibleLinkUrl = url || possibleProjectIdPath;
 
   return (
-    <>
-      {!!name && (
-        <header>
-          <h4>
-            {!!possibleLinkUrl && <OptionallyLinkedTitle name={name} url={possibleLinkUrl} />}
-            {!possibleLinkUrl && <PortfolioMarkdownizer source={name} />}
-          </h4>
+    <div data-id={id}>
+      <ContentWithThumbnail thumb={thumb}>
+        <>
+          {!!name && (
+            <header>
+              <h4>
+                {!!possibleLinkUrl && <OptionallyLinkedTitle name={name} url={possibleLinkUrl} />}
+                {!possibleLinkUrl && <PortfolioMarkdownizer source={name} />}
+              </h4>
 
-          {!!timeframe && (
-            <span className="date text text__small">
-              <Timeframe timeframe={timeframe} />
-            </span>          
+              {!!timeframe && (
+                <span className="date text text__small">
+                  <Timeframe timeframe={timeframe} />
+                </span>          
+              )}
+            </header>
           )}
-        </header>
-      )}
-      
-      <div className="highlight-desc">
-        <PortfolioMarkdownizer source={description || ''} />
-      </div>
+          
+          <div className="highlight-desc">
+            <PortfolioMarkdownizer source={description || ''} />
+          </div>
+        </>
+      </ContentWithThumbnail>
 
       <style jsx>{`
         header > * { 
@@ -62,6 +69,6 @@ export function ProjectHighlight ({ highlight }: Props): JSX.Element {
           max-width:100%;
         }
       `}</style>
-    </>
+    </div>
   );
 }

@@ -9,7 +9,7 @@ export function joinLinkedChildProjectDetails (
   const childProject = allProjects[projectHighlight.projectId];
   
   return {
-    projectId: projectHighlight.projectId,
+    ...projectHighlight,
     name: childProject.name,
     description: projectHighlight.description || childProject.description,
     timeframe: projectHighlight.timeframe || childProject.timeframe

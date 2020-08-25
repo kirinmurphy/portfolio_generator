@@ -7,11 +7,9 @@ import {
 export type ProjectIdType = string;
 export type ProjectName = string;
 export type ProjectUrl = string;
-export type Tagline = string;
-export type WorkType = 'job' | 'solo' | 'multi_project';
+export type WorkType = 'job' | 'contract' | 'solo' | 'multi_project';
 export type Categories = string[];
 
-type Jobtype = string;
 type Role = string;
 type Description = string;
 
@@ -27,11 +25,13 @@ export interface ExternalLinkProps {
 }
 
 export interface ProjectHighlightProps {
+  id: string;
   description?: Description;
   name?: string;
   url?: string;
   projectId?: ProjectIdType;
   timeframe?: TimeframeProps;
+  thumb: string;
 }
 
 export interface ProjectHighlightsProps {
@@ -43,10 +43,13 @@ export interface ProjectSummaryProps {
   id: ProjectIdType;
   name: ProjectName;
   timeframe: TimeframeProps;
-  jobtype: Jobtype;
-  tagline:Tagline;
+  description: Description;
+  thumb: string;
+  role: Role;
   workType: WorkType;
   categories?: Categories;
+  languages: CommaSeparatedListCollectionType;
+  detailOverrideUrl: string;
 }
 
 // TODO - figure out the path file paths to gitlab & bitbucket raw files
@@ -61,11 +64,9 @@ export interface ProjectDetailProps {
   name: ProjectName;
   marquee: MultimediaizerProps;
   timeframe: TimeframeProps;
-  tagline: Tagline;
   description?: Description;
   url?: ProjectUrl;
   workType: WorkType;
-  jobtype?: Jobtype;
   parentProjectId?: ProjectIdType;
   parentProjectName?: ProjectName;
   role?: Role;

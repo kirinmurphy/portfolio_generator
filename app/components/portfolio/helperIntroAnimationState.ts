@@ -12,7 +12,6 @@ export function turnOffAnimation (window: Window): void {
   html.style.setProperty('--animationTransitionDelay2', '0');
   html.style.setProperty('--animationTransitionDelay3', '0');
   html.style.setProperty('--animationInitIntroLinksOffset', '0');
-  html.style.setProperty('--animationInitSkillsetsOffset', '0');
   html.style.setProperty('--animationInitOpacity', '1');
   html.style.setProperty('--animationEasing', 'none');
 }

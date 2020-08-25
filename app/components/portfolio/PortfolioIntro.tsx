@@ -7,19 +7,17 @@ import { breakpointMiddle } from '../../portfolioData/cssVariables';
 import { PortfolioMarkdownizer } from './PortfolioMarkdownizer';
 import { ContactLinks } from './ContactLinks';
 
-interface Props {
-  introContent: PersonalInfoProps;
-}
-
-export function PortfolioIntro ({ introContent }: Props): JSX.Element {
-  const { name, introduction, links } = introContent;
-
+export function PortfolioIntro ({ name, title, introduction, links }: PersonalInfoProps): JSX.Element {
   return (
     <>
       <header>
         <h1>{name}</h1>
         <ContactLinks links={links} />
       </header>
+
+      <div className="title">
+        {title}
+      </div>
 
       <div className="introduction">
         <PortfolioMarkdownizer source={introduction} />
@@ -28,12 +26,13 @@ export function PortfolioIntro ({ introContent }: Props): JSX.Element {
 
       <style jsx>{`
         header {
-          margin-bottom:.75rem;
+          margin-bottom:.25rem;
         }
 
         .portfolio-link {
           display:none;
-          font-size:var(--fontSize-bump);
+          font-size:var(--fontSize-base);
+          margin-bottom:.2rem;
         }
 
         @media print {
@@ -46,8 +45,7 @@ export function PortfolioIntro ({ introContent }: Props): JSX.Element {
         }
 
         h1 {
-          font-weight:bold;
-          font-size:var(--fontSize-intro-header);
+          font-size:var(--fontSize-intro-name);
         }
 
         header :global(.contact-links) {
@@ -55,20 +53,25 @@ export function PortfolioIntro ({ introContent }: Props): JSX.Element {
         }
 
         header :global(.svg-inline--fa) {
-          width:1.75rem; 
+          width:var(--iconSize-intro-contactLinks); 
+        }
+
+        .title {
+          margin-bottom: .5rem;
+          font-size:var(--fontSize-intro-title);
         }
 
         .introduction {
-          font-size:var(--fontSize-intro-text);  
+          font-size:var(--fontSize-intro-description);  
         }
 
-        .introduction :global(p:not(:last-of-type)) {
+        /* .introduction :global(p:not(:last-of-type)) {
           margin-bottom:1.5rem;
-        }
+        } */
 
         @media(min-width:${breakpointMiddle}) {
           header {
-            margin-bottom:1.25rem;
+            margin-bottom:.25rem;
           }
         }
       `}</style>    

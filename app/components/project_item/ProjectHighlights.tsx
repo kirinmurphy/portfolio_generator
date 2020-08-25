@@ -10,7 +10,7 @@ export function ProjectHighlights ({ title, list }: ProjectHighlightsProps): JSX
     <>
       {!!title && <h2 className="name">{title}</h2>}
 
-      <ul className="bulleted">
+      <ul>
         {list.map((highlight, index) => (
           <li key={index}> 
             <ProjectHighlight highlight={highlight} />        
@@ -20,12 +20,19 @@ export function ProjectHighlights ({ title, list }: ProjectHighlightsProps): JSX
 
       <style jsx>{`
         .name {
-          margin-bottom:.5rem;
+          margin-bottom:1rem;
+          padding-bottom:.5rem;
+          border-bottom:1px solid #ccc;
         }
 
-        li { 
+        ul {
+          list-style-type:none; /* TODO - move this to library */
           max-width:900px;
-          margin-bottom:var(--paragraph-bottom-margin); 
+        }
+
+
+        li:not(:last-of-type) {
+          margin-bottom:1.5rem; 
         }
       `}</style>
     </>

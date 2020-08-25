@@ -19,7 +19,7 @@ export const globalVariables = css.global`
     --textcolor-link-inverted: var(--textcolor-inverted);
     --textcolor-link-inverted-hover: var(--color-beige);
 
-    --page-bgColor: #25384b;
+    --page-bgColor: #fff;
     --bg-panel-skillsets: #1b412e;
     --bg-panel-footer: #15283b;
     --bg-panel-light: var(--color-beige);
@@ -36,8 +36,10 @@ export const globalVariables = css.global`
 
 
     /* -- INTRO --------------- */
-    --fontSize-intro-header: var(--fontSize-title-big);
-    --fontSize-intro-text: var(----fontSize-highlight);
+    --fontSize-intro-name: var(--fontSize-title-big);
+    --fontSize-intro-title: var(--fontSize-highlight);
+    --fontSize-intro-description: var(--fontSize-base);
+    --iconSize-intro-contactLinks: 1.5rem;
 
     --animationInitOpacity: 0;   
     --animationInitIntroLinksOffset: 30px;  
@@ -59,12 +61,12 @@ export const globalVariables = css.global`
     --project-detail-desc-gutter: 1rem;
   }
 
-
-
   @media(min-width:${breakpointMobile}) {
     :root {
-      --fontSize-intro-header: var(--fontSize-title-huge);
-      --fontSize-intro-text: var(--fontSize-title-small);
+      --fontSize-intro-name: var(--fontSize-title-big);
+      --fontSize-intro-title: var(--fontSize-title-small);
+      --fontSize-intro-description: var(--fontSize-highlight);
+      --iconSize-intro-contactLinks: 1.6rem;
 
       --height-skillsetFeaturedItem-4: 330px;
       --height-skillsetFeaturedItem-6: 330px;
@@ -76,8 +78,6 @@ export const globalVariables = css.global`
 
   @media(min-width:${breakpointMiddle}) {
     :root {
-      --fontSize-intro-text: var(--fontSize-title-medium);
-
       --gutter-page-section: 2rem;
       --gutter-project-list: 2rem;
       --intro-vertical-offset: 2rem;

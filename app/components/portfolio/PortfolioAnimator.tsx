@@ -84,11 +84,6 @@ export function PortfolioAnimator ({ children }: Props): JSX.Element {
         }
       `}</style>
       <style jsx global>{`
-        #skillset {
-          position:relative;
-          z-index:0;
-        }
-
         #projects,
         #page-footer {
           position:relative;
@@ -97,8 +92,7 @@ export function PortfolioAnimator ({ children }: Props): JSX.Element {
 
         #portfolio-intro h1,
         #portfolio-intro .introduction,
-        #portfolio-intro .contact-links a,
-        #skillsets {
+        #portfolio-intro .contact-links a {
           opacity:var(--animationInitOpacity);
           transition:opacity 1.2s var(--animationEasing), transform 0.8s var(--animationEasing);
           -webkit-backface-visibility: hidden;
@@ -109,26 +103,20 @@ export function PortfolioAnimator ({ children }: Props): JSX.Element {
           transform:translate3d(0, var(--animationInitIntroLinksOffset), 0);
         }
 
-        #skillsets {
-          transform:translate3d(0, var(--animationInitSkillsetsOffset), 0);
-        }
 
         #portfolio-intro h1 { transition-delay:0; }
         #portfolio-intro .introduction { transition-delay:var(--animationTransitionDelay2); }
         #portfolio-intro .contact-links a:nth-of-type(1) { transition-delay:var(--animationTransitionDelay1); }
         #portfolio-intro .contact-links a:nth-of-type(2) { transition-delay:var(--animationTransitionDelay2); }
         #portfolio-intro .contact-links a:nth-of-type(3) { transition-delay:var(--animationTransitionDelay3); }
-        #skillsets { transition-delay:var(--animationTransitionDelay2); }
 
         [data-ready="true"] #portfolio-intro h1,
         [data-ready="true"] #portfolio-intro .introduction,
-        [data-ready="true"] #portfolio-intro .contact-links a,
-        [data-ready="true"] #skillsets {
+        [data-ready="true"] #portfolio-intro .contact-links a {
           opacity:1;
         }
 
-        [data-ready="true"] #portfolio-intro .contact-links a,
-        [data-ready="true"] #skillsets {
+        [data-ready="true"] #portfolio-intro .contact-links a {
           transform:translate3d(0, 0, 0);
         }
       `}</style>

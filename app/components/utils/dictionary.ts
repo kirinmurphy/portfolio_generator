@@ -4,10 +4,10 @@ export const MSG_LANGUAGES_TITLE = 'Languages/Frameworks';
 export const MSG_TOOLS_TITLE = 'Tools';
 export const MSG_OPEN_IN_NEW_WINDOW = 'open in new window';
 export const MSG_PORTFOLIO_LOADING = 'be right there...';
-export const MSG_SHOW_ALL_IN_LIST_TRIGGER = 'show all';
 
 export const MSG_WORK_HISTORY_TYPE = {
-  job: "Employment and Client Work",
+  job: "Employment",
   solo: "Solo Projects",
+  contract: "Contract/Freelance Work",
   multi_project: ''
 };

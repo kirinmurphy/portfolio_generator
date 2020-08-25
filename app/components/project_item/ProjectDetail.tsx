@@ -11,15 +11,14 @@ import {
   CommaSeparatedList, 
   Multimediaizer,
   hasMultimediaContent,
-  BackLink
+  BackLink,
+  Markdownizer
 } from 'codethings-react-ui';
 
 import { Timeframe } from '../widgets/Timeframe';
 import { OptionallyLinkedTitle } from '../widgets/OptionallyLinkedTitle';
 import { ExternalLinks } from './ExternalLinks';
 import { MarkdownFile } from '../widgets/MarkdownFile';
-
-import { PortfolioMarkdownizer } from '../portfolio/PortfolioMarkdownizer';
 
 import { ProjectHighlights } from './ProjectHighlights';
 import { getProjectPath } from './helperProjectId';
@@ -35,11 +34,9 @@ export function ProjectDetail ({ project }: Props): JSX.Element {
     url,
     name,
     timeframe,
-    jobtype,
     parentProjectId,
     parentProjectName,
     role,
-    tagline,
     description,
     languages,
     tools,
@@ -65,31 +62,26 @@ export function ProjectDetail ({ project }: Props): JSX.Element {
             </div>
           )}
 
-          <header>
-            <h3>
-              <OptionallyLinkedTitle name={name} url={url} />
-            </h3>
+          <div className="main">
+            <header>
+              <h3>
+                <OptionallyLinkedTitle name={name} url={url} />
+              </h3>
 
-            <section className="text text__small">
-              <div>
+              <div className="project-meta text text__small">
                 <Timeframe timeframe={timeframe} />
-
-                {jobtype && (<span>, {jobtype}</span>)}
                 
                 {!!parentProjectId && (
                   <span>, <a href={getProjectPath(parentProjectId)}>{parentProjectName}</a></span>
                 )}
-              </div>
-              {role && <div>{role}</div>}
-            </section>
 
-            <section className="description">
-              <div className="tagline">
-                <PortfolioMarkdownizer source={tagline} />
+                {!parentProjectId && role && <span>, {role}</span>}
               </div>
 
-              {!!description && <PortfolioMarkdownizer source={description} />}
-            </section>
+              <div className="description">
+                <Markdownizer source={`${description}`}  />
+              </div>
+            </header>
 
             {(!!languages || !!tools) && (
               <section className="languages-and-tools text text__small">
@@ -103,7 +95,7 @@ export function ProjectDetail ({ project }: Props): JSX.Element {
                 <ExternalLinks links={links} />
               </section>
             )}
-          </header>
+          </div>
         </div>
 
         {(!!highlights || !!repoReadmeFile) && (

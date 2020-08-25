@@ -11,7 +11,7 @@ export const portfolioGlobal = css.global`
 
   .text__small {
     font-size: var(--fontSize-small);
-    line-height:1.2rem;
+    line-height:1.3rem;
     color:var(--textcolor-light);
   }  
 `;
