@@ -13,8 +13,8 @@ interface Props {
   highlight: ProjectHighlightProps;
 }
 
-export function ProjectHighlight ({ highlight }: Props): JSX.Element {
-  const {
+export function ProjectHighlight (
+  { 
     id,
     projectId,
     url,
@@ -22,13 +22,13 @@ export function ProjectHighlight ({ highlight }: Props): JSX.Element {
     timeframe,
     description,
     thumb
-  } = highlight;
+  }: ProjectHighlightProps): JSX.Element {
 
   const possibleProjectIdPath = !!projectId ? getProjectPath(projectId) : null;
   const possibleLinkUrl = url || possibleProjectIdPath;
 
   return (
-    <div data-id={id}>
+    <div data-id={id || projectId}>
       <ContentWithThumbnail thumb={thumb}>
         <>
           {!!name && (

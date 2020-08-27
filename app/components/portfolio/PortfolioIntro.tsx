@@ -58,16 +58,13 @@ export function PortfolioIntro ({ name, title, introduction, links }: PersonalIn
 
         .title {
           margin-bottom: .5rem;
-          font-size:var(--fontSize-intro-title);
+          font-size:var(--fontSize-highlight);
+          font-weight:bold;
         }
 
         .introduction {
           font-size:var(--fontSize-intro-description);  
         }
-
-        /* .introduction :global(p:not(:last-of-type)) {
-          margin-bottom:1.5rem;
-        } */
 
         @media(min-width:${breakpointMiddle}) {
           header {

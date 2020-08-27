@@ -23,6 +23,12 @@ export interface ContactLinksProps {
   linkedIn?: string;
 }
 
+export interface CategoryProps {
+  id: string;
+  name: string;
+}
+
 export interface WorkHistoryProps {
-  projectList: ProjectSummaryProps[]
+  projectList: ProjectSummaryProps[];
+  categories?: CategoryProps[];
 }

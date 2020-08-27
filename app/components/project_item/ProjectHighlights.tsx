@@ -13,7 +13,7 @@ export function ProjectHighlights ({ title, list }: ProjectHighlightsProps): JSX
       <ul>
         {list.map((highlight, index) => (
           <li key={index}> 
-            <ProjectHighlight highlight={highlight} />        
+            <ProjectHighlight {...highlight} />        
           </li>
         ))} 
       </ul>

@@ -24,7 +24,7 @@ export function Portfolio ({ portfolioData }: Props): JSX.Element {
       </section>
       <section id="projects">
         <div className="inner">
-          <WorkHistory workHistory={portfolioData?.workHistory} />
+          <WorkHistory {...portfolioData?.workHistory} />
         </div>
       </section>
       <footer id="page-footer" className="panel panel--inverted">
@@ -65,24 +65,12 @@ export function Portfolio ({ portfolioData }: Props): JSX.Element {
         }
 
         @media(max-width:${breakpointMobile}) {
+          #portfolio-intro {
+            padding-top:1rem;
+          }
+
           #projects > .inner {
             padding:0;
-          }
-
-          #projects > .inner :global(.subset-wrapper > header),
-          #projects > .inner :global(.subset-wrapper > article) {
-            padding-left:var(--gutter-page-section);
-            padding-right:var(--gutter-page-section);
-          }
-
-          #projects > .inner :global(.subset-wrapper) {
-            margin-bottom:0;
-          }
-
-          #projects > .inner :global(.subset-wrapper > header) {
-            padding-top:.3rem;
-            border-bottom:0;
-            background:#eee;
           }
         }
       `}

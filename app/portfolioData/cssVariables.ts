@@ -26,6 +26,11 @@ export const globalVariables = css.global`
     --bg-panel-lighter: var(--color-bluegray-lighter);
 
 
+    /* -- Z-INDEXES ---------------- */
+    --zindex-sticky-filter: 151;
+    --zindex-sticky-header: 150;
+
+
     /* -- LAYOUT ------------------- */
     --body-max-width: 1050px;
 

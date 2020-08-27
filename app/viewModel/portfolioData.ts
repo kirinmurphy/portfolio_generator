@@ -11,6 +11,7 @@ export default {
   personalInfo: personalInfo,
   allProjects: joinedProjectData,
   workHistory: {
+    ...workHistory,
     projectList: workHistory.projectList.map((projectId) => { 
       return joinProjectDataToWorkHistory(joinedProjectData, projectId);
     })

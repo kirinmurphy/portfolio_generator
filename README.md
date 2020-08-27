@@ -42,6 +42,16 @@ Chronological history of projects grouped by paid and solo work
 }
 ```
 
+Option to add a filterable set of categories (more below)
+```
+{
+  projectList: [...],
+  categories: [
+    { id: "technology", name: "Technology Highlights" },
+    { id: "design", name:"Design Highlights" }
+  ]
+}
+```
 
 ## Project Data
 required
@@ -67,6 +77,7 @@ links" [
   { name:"Code", url: "github.com/repo", icon: "github-alt" },
   { name:"Slack group", url: "slack.com/somegroup", icon: "slack" }
 ],
+categories: more below
 marquee: more below,
 parentProjectId: more below,
 highlgihts: more below,
@@ -75,12 +86,28 @@ repoReadmeFile: more below,
 
 
 ### workType flag
+Groups projects by `job`, `contract` or `solo`.
 ```
 "workType": "job"
-```
-Groups projects by `job`, `contract` or `solo`.
-
+```   
 ![Work History Grouping](https://github.com/kirinmurphy/portfolio_generator/blob/master/notes/readme-screenshots/workHistoryFilteredByWorkType.png)
+
+
+### categories
+Match to `category` ids set in the `workHistory` json to display when filtering by that keyword. 
+```
+// in workHistory.json
+{
+  projectList: [...],
+  categories: [
+    { id: "technology", name: "Technology Highlights" }
+  ]
+}
+
+// in projects.json 
+categories: ["technology"]
+```    
+![Category Option](https://github.com/kirinmurphy/portfolio_generator/blob/master/notes/readme-screenshots/focusFilter.png)
 
 
 ### Marquee

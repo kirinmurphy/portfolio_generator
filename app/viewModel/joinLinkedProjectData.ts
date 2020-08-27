@@ -2,41 +2,33 @@ import { LooseObject } from '../components/types/global';
 import { ProjectHighlightProps, ProjectsObjectProps } from '../components/types/project';
 
 import { joinLinkedChildProjectDetails } from './joinLinkedChildProjectDetails';
-import { getFormattedChapters } from 'codethings-react-ui';
 
-
-// TSTODO - this breaks when bind it to the view model stuff
+// TSTODO - these io typings break when made too specific 
 // beceause the required/optional fields are different btw raw and joined data
 // guess I need separate raw/joined interfaces and somehow extend one onto the other? 
 export function formatAndJoinProjectData (allProjects: LooseObject): ProjectsObjectProps {
   return Object.keys(allProjects).map((projectId) => {
     const project = allProjects[projectId];
 
-    if ( !!project.parentProjectId ) {
-      project.parentProjectName = allProjects[project.parentProjectId].name;
-    }
-  
-    const projectHighlights = project.highlights;
-    if ( !!projectHighlights ) {
-      projectHighlights.list = projectHighlights.list
-        .map((projectHighlight: ProjectHighlightProps) => { 
-          return joinLinkedChildProjectDetails(allProjects, projectHighlight); 
-        });
-    }
+    const { 
+      highlights, 
+      url, 
+      marquee, 
+      parentProjectId 
+    } = project;
 
-    const video = project.marquee?.video;
-    if ( !!video && !!video.chapters ) {
-      video.chapters = getFormattedChapters(video.chapters);
-    }
-
-    const iframeMarquee = project.marquee?.type === 'iframe' && project.marquee;
-    if ( !!iframeMarquee ) {
-      iframeMarquee.iframeUrl = project.url;
-    }
+    if ( marquee?.type === 'iframe' ) { marquee.iframeUrl = url; }
 
     return { 
-      id: projectId, 
-      ...project 
+      ...project,
+      id: projectId,
+      parentProjectName: allProjects[parentProjectId]?.name || null,
+      highlights: !highlights ? null : {
+        ...highlights,
+        list: highlights?.list.map((projectHighlight: ProjectHighlightProps) => { 
+          return joinLinkedChildProjectDetails(allProjects, projectHighlight); 
+        }) || null
+      }
     };
   }).reduce((transformedObject, project) => {
     transformedObject[project.id] = project;    

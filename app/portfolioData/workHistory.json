@@ -1,8 +1,7 @@
 {
-  "maxProjectsOnInit": {
-    "maxJobProjects": null,
-    "maxSoloProjects": null
-  },
+  "categories": [
+    { "id": "news", "name": "News" }
+  ],
   "projectList": [
     "gnn",
     "catPhotography",

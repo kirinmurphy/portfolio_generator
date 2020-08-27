@@ -2,19 +2,18 @@ import React from 'react';
 
 import { breakpointMobile, breakpointMaxWidth } from '../../portfolioData/cssVariables';
 
-interface OtherProps {
+interface Props {
   children: JSX.Element | JSX.Element[];
   thumb: string;
 }
 
-export function ContentWithThumbnail ({ children, thumb }: OtherProps): JSX.Element {
+export function ContentWithThumbnail ({ children, thumb }: Props): JSX.Element {
   return (
     <div className="content-with-thumb-wrapper" data-show-thumb={!!thumb}>
       {thumb && (
         <div className="thumb">
           <picture>
-            <source srcSet="data:,x" 
-              media={`(max-width: ${breakpointMobile})`} />
+            <source srcSet="data:,x" media={`(max-width: ${breakpointMobile})`} />
             <img src={`/images/thumbs/${thumb}`} />
           </picture>
         </div>

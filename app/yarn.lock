@@ -1943,14 +1943,15 @@ coa@^2.0.2:
     chalk "^2.4.1"
     q "^1.1.2"
 
-codethings-react-ui@1.0.29:
-  version "1.0.29"
-  resolved "https://registry.yarnpkg.com/codethings-react-ui/-/codethings-react-ui-1.0.29.tgz#03e5fcbd12bd89cfe3fb1dc92c6eae51f4ee4fb3"
-  integrity sha512-LlZHqQiUfWhjUXQUJt8i6zOmryAR3dzp2NfJKuMq8ZTmC4mwMnBl59pDqFL0mr22RcgtW14/IBzDr+yke0sVdg==
+codethings-react-ui@1.1.6:
+  version "1.1.6"
+  resolved "https://registry.yarnpkg.com/codethings-react-ui/-/codethings-react-ui-1.1.6.tgz#21915cde4dd1ecda51e342d22059bc00e932f749"
+  integrity sha512-/+OAYHB0BTOc2kSSphY568xtUQCUyrfJ3Bh2jCJ/U5XJMQ94OyFkHgSYYGkesbvShEO8MBBd1pCnl2Pskr9ScA==
   dependencies:
     "@fortawesome/fontawesome-svg-core" "^1.2.30"
     "@fortawesome/free-solid-svg-icons" "^5.14.0"
     "@fortawesome/react-fontawesome" "^0.1.11"
+    react-device-detect "^1.13.1"
     react-markdown "^4.3.1"
 
 collapse-white-space@^1.0.2:
@@ -4940,6 +4941,13 @@ randomfill@^1.0.3:
     randombytes "^2.0.5"
     safe-buffer "^5.1.0"
 
+react-device-detect@^1.13.1:
+  version "1.13.1"
+  resolved "https://registry.yarnpkg.com/react-device-detect/-/react-device-detect-1.13.1.tgz#27ac0e86a03969e440e973d179aaa19e80a5ba66"
+  integrity sha512-XTPgAMsUVHC5lMNUGiAeO2UfAfhMfjq0CBUM67eHnc9XfO7iESh6h/cffKV8VGgrZBX+dyuqJl23bLLHoav5Ig==
+  dependencies:
+    ua-parser-js "^0.7.21"
+
 react-dom@16.13.1:
   version "16.13.1"
   resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-16.13.1.tgz#c1bd37331a0486c078ee54c4740720993b2e0e7f"
@@ -5905,6 +5913,11 @@ typescript@^3.9.5:
   version "3.9.6"
   resolved "https://registry.yarnpkg.com/typescript/-/typescript-3.9.6.tgz#8f3e0198a34c3ae17091b35571d3afd31999365a"
   integrity sha512-Pspx3oKAPJtjNwE92YS05HQoY7z2SFyOpHo9MqJor3BXAGNaPUs83CuVp9VISFkSjyRfiTpmKuAYGJB7S7hOxw==
+
+ua-parser-js@^0.7.21:
+  version "0.7.21"
+  resolved "https://registry.yarnpkg.com/ua-parser-js/-/ua-parser-js-0.7.21.tgz#853cf9ce93f642f67174273cc34565ae6f308777"
+  integrity sha512-+O8/qh/Qj8CgC6eYBVBykMrNtp5Gebn4dlGD/kKXVkJNDwyrAwSIqwz8CDf+tsAIWVycKcku6gIXJ0qwx/ZXaQ==
 
 unherit@^1.0.4:
   version "1.1.3"
