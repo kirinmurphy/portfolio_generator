@@ -2,7 +2,8 @@ import React, { useState, useEffect, useRef } from 'react';
 
 import { ProjectIdType, ProjectsObjectProps } from '../types/project';
 
-import { useUrlParam } from '../utils/useUrlParam';
+import { useUrlParam } from 'codethings-nextjs-router-addons';
+
 import { triggeredLinkIncludesProjectId, PROJECT_ID_PARAM } from '../project_item/helperProjectId';
 
 import { useTriggerOverride, Popupizer } from 'codethings-react-ui';
@@ -15,26 +16,25 @@ interface Props {
 }
 
 export function ProjectActive ({ allProjects }: Props): JSX.Element {
-
   const { 
-    paramValueFromUrl, 
+    paramValue, 
     clearParam: clearActiveProject, 
-    updateParam 
+    updateParam
   } = useUrlParam(PROJECT_ID_PARAM);
 
   const [activeProjectId, setActiveProjectId] = useState<ProjectIdType>('');
   const activeProject = allProjects[activeProjectId];
   const activeProjectRef = useRef<HTMLDivElement>(null);
 
-  const updateActiveProject = (linkHref: string) => {
+  function updateActiveProject (linkHref: string) {
     const projectId = linkHref.split('=')[1];
     updateParam(projectId);
-  };
+  }
 
   useEffect(() => {
-    const paramValueFromUrlExists = !!allProjects[paramValueFromUrl];
-    setActiveProjectId(paramValueFromUrlExists ? paramValueFromUrl : '');
-  }, [paramValueFromUrl, activeProjectId, allProjects]);
+    const paramValueExists = !!paramValue && !!allProjects[paramValue];
+    setActiveProjectId(paramValueExists ? paramValue as string: '');  
+  }, [paramValue, activeProjectId, allProjects]);
 
   // Hijack links that include a projectId
   useTriggerOverride({ 

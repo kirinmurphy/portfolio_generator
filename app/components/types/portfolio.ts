@@ -1,3 +1,5 @@
+import { FilterCategoryProps } from 'codethings-nextjs-router-addons';
+
 import { 
   ProjectSummaryProps,
   ProjectsObjectProps,
@@ -23,12 +25,7 @@ export interface ContactLinksProps {
   linkedIn?: string;
 }
 
-export interface CategoryProps {
-  id: string;
-  name: string;
-}
-
 export interface WorkHistoryProps {
   projectList: ProjectSummaryProps[];
-  categories?: CategoryProps[];
+  categories?: FilterCategoryProps[];
 }

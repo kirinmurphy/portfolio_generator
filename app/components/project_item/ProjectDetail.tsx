@@ -11,7 +11,7 @@ import {
   CommaSeparatedList, 
   Multimediaizer,
   hasMultimediaContent,
-  BackLink,
+  BrowserBackLink,
   Markdownizer
 } from 'codethings-react-ui';
 
@@ -50,7 +50,7 @@ export function ProjectDetail ({ project }: Props): JSX.Element {
   return (
     <>
       <div className="project-wrapper panel panel--default">
-        <BackLink />
+        <BrowserBackLink />
 
         <div className="main-content" 
           data-has-marquee={hasMarquee}

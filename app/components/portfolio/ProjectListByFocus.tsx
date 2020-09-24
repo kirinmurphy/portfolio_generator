@@ -10,14 +10,14 @@ interface Props {
 
 export function ProjectListByFocus ({ projectList }: Props): JSX.Element {
 
-  const { activeFocusName, activeFocusType } = useFocusFilter();
+  const { activeFocusName, activeFocusId } = useFocusFilter();
 
-  return !!activeFocusType ? (
+  return !!activeFocusId ? (
     <div className="project-list-wrapper">
       <ProjectList 
         title={activeFocusName}
         projects={projectList.filter(project => {
-          return project.categories?.includes(activeFocusType);
+          return project.categories?.includes(activeFocusId);
         })}
       />
     </div>

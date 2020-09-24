@@ -28,7 +28,7 @@ export function ProjectWorkSummary ({ project }: Props): JSX.Element {
     detailOverrideUrl
   } = project;
 
-  const { activeFocusType } = useFocusFilter();
+  const { activeFocusId } = useFocusFilter();
 
   const [showLanguages] = useLanguageDisplay();
 
@@ -36,7 +36,7 @@ export function ProjectWorkSummary ({ project }: Props): JSX.Element {
 
   const linkUrl = detailOverrideUrl ? detailOverrideUrl : getProjectPath(id);   
 
-  const isSoloProjectWithActiveFocus = workType === 'solo' && !!activeFocusType;
+  const isSoloProjectWithActiveFocus = workType === 'solo' && !!activeFocusId;
 
   return !!id ? (
     <>

@@ -1,7 +1,9 @@
 import React, { useEffect, useRef } from 'react';
 
+import { UrlParamCategoryFilterProvider } from 'codethings-nextjs-router-addons';
+
 import { WorkHistoryProps } from '../types/portfolio';
-import { useFocusFilter, FocusCategoriesContext } from '../utils/useFocusFilter';
+import { useFocusFilter } from '../utils/useFocusFilter';
 import { ProjectListsByWorkType } from './ProjectListsByWorkType';
 import { ProjectListByFocus } from './ProjectListByFocus';
 import { FocusFilterDropdown } from './FocusFilterDropdown';
@@ -11,14 +13,14 @@ export function WorkHistory (props: WorkHistoryProps): JSX.Element {
   const { projectList, categories } = props;
 
   return (
-    <FocusCategoriesContext.Provider value={categories || []}>
+    <UrlParamCategoryFilterProvider filterCategories={categories || []}>
       <WorkHistoryInner projectList={projectList} />
-    </FocusCategoriesContext.Provider>
+    </UrlParamCategoryFilterProvider> 
   );
 }
 
 function WorkHistoryInner ({ projectList }: WorkHistoryProps): JSX.Element {
-  const { focusCategories, activeFocusType } = useFocusFilter();
+  const { focusCategories, activeFocusId } = useFocusFilter();
 
   const filterRef = useRef<HTMLDivElement>(null);
 
@@ -26,7 +28,7 @@ function WorkHistoryInner ({ projectList }: WorkHistoryProps): JSX.Element {
     if ( typeof(Window) !== 'undefined' && filterRef.current ) {
       scrollToTopOfList(window, filterRef.current);
     }
-  }, [activeFocusType]);
+  }, [activeFocusId]);
 
   return (
     <div className="work-history">
@@ -36,11 +38,11 @@ function WorkHistoryInner ({ projectList }: WorkHistoryProps): JSX.Element {
         </div>
       )}
 
-      {!activeFocusType && (
+      {!activeFocusId && (
         <ProjectListsByWorkType projectList={projectList} />
       )}
 
-      {!!activeFocusType && ( 
+      {!!activeFocusId && ( 
         <ProjectListByFocus projectList={projectList} />
       )}
 
@@ -62,7 +64,6 @@ function WorkHistoryInner ({ projectList }: WorkHistoryProps): JSX.Element {
           position:relative;
           top:2px;
         }
-
 
         @media(min-width:${breakpointMobile}) {
           .focus-filter-wrapper :global(.focus-filter > *) {

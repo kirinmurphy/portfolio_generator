@@ -9,19 +9,19 @@ import { useFocusFilter } from '../utils/useFocusFilter';
 export function FocusFilterDropdown (): JSX.Element {
 
   const { 
-    activeFocusType, 
+    activeFocusId, 
     focusCategories, 
     updateFocus, 
     clearFocus 
   } = useFocusFilter();
 
-  const hasOptionsWithNoActiveType = (!activeFocusType && focusCategories.length > 0);
-  const hasOptionsWithActiveType = (!!activeFocusType && focusCategories.length > 1);
+  const hasOptionsWithNoActiveType = (!activeFocusId && focusCategories.length > 0);
+  const hasOptionsWithActiveType = (!!activeFocusId && focusCategories.length > 1);
   const hasFocusOptions = hasOptionsWithNoActiveType || hasOptionsWithActiveType;
 
   return (
     <div className="focus-filter">
-      {!!activeFocusType && (
+      {!!activeFocusId && (
         <>
           <span className="view-all link" onClick={() => clearFocus()}>
             {MSG_VIEW_ALL_PROJECTS}
@@ -32,11 +32,11 @@ export function FocusFilterDropdown (): JSX.Element {
 
       {hasFocusOptions && (
         <Dropdownizer
-          title={activeFocusType ? MSG_CHANGE_FOCUS_CTA : MSG_VIEW_FOCUS_CTA}
+          title={activeFocusId ? MSG_CHANGE_FOCUS_CTA : MSG_VIEW_FOCUS_CTA}
           content={focusCategories.map((category, index) => {
             return !!category ? (
               <div key={index} className="dropdown-item"
-                data-is-active={activeFocusType === category.id}
+                data-is-active={activeFocusId === category.id}
                 onClick={() => updateFocus(category.id)}>
                 {category?.name}
               </div>

@@ -1,4 +1,4 @@
-import { useUrlParam } from '../utils/useUrlParam';
+import { useUrlParam } from 'codethings-nextjs-router-addons';
 import { useFocusFilter } from '../utils/useFocusFilter';
 
 const SHOW_LANGUAGES_PARAM = 'languages';
@@ -6,13 +6,13 @@ const SHOW_LANGUAGES_PARAM = 'languages';
 const FOCUS_FILTER_TYPE_TECHNOLOGY = 'technology';
 
 export function useLanguageDisplay (): [boolean] {
-  const { activeFocusType } = useFocusFilter();
+  const { activeFocusId } = useFocusFilter();
 
-  const { paramValueFromUrl } = useUrlParam(SHOW_LANGUAGES_PARAM);
+  const { paramValue } = useUrlParam(SHOW_LANGUAGES_PARAM);
 
-  const showLanguagesOnDefaultView = (paramValueFromUrl === 'true' && !activeFocusType);
+  const showLanguagesOnDefaultView = (paramValue === 'true' && !activeFocusId);
 
-  const hasTechnologyFocus = activeFocusType === FOCUS_FILTER_TYPE_TECHNOLOGY;
+  const hasTechnologyFocus = activeFocusId === FOCUS_FILTER_TYPE_TECHNOLOGY;
 
   return [showLanguagesOnDefaultView || hasTechnologyFocus];  
 }
