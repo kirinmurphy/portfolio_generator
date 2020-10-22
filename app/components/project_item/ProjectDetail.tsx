@@ -65,10 +65,10 @@ export function ProjectDetail ({ project }: Props): JSX.Element {
           <div className="main">
             <header>
               <h3>
-                <OptionallyLinkedTitle name={name} url={url} />
+                <OptionallyLinkedTitle name={name} url={url} showExternal={true} />
               </h3>
 
-              <div className="project-meta text text__small">
+              <div className="project-details text text__small">
                 <Timeframe timeframe={timeframe} />
                 
                 {!!parentProjectId && (

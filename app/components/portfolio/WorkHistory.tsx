@@ -47,15 +47,8 @@ function WorkHistoryInner ({ projectList }: WorkHistoryProps): JSX.Element {
       )}
 
       <style jsx>{`
-        .work-history {
-          position:relative;
-        }
 
         .focus-filter-wrapper {
-          position: -webkit-sticky; /* Safari */
-          position: sticky;
-          top: 0;
-          z-index:var(--zindex-sticky-filter);
           margin-bottom:-2.6rem;
           text-align:right;
         }
@@ -65,21 +58,29 @@ function WorkHistoryInner ({ projectList }: WorkHistoryProps): JSX.Element {
           top:2px;
         }
 
-        @media(min-width:${breakpointMobile}) {
-          .focus-filter-wrapper :global(.focus-filter > *) {
-            background:#fff;
-          }
-        }
-
         @media screen {
           .work-history {
+            position:relative;
             min-height:70vh;
+          }
+
+          .focus-filter-wrapper {
+            position: -webkit-sticky; /* Safari */
+            position: sticky;
+            top: 0;
+            z-index:var(--zindex-sticky-filter);
           }
         }
 
         @media print {
           .focus-filter-wrapper { display:none; }
         }  
+
+        @media(min-width:${breakpointMobile}) {
+          .focus-filter-wrapper :global(.focus-filter > *) {
+            background:#fff;
+          }
+        }
 
         @media(max-width:${breakpointMobile}) {
           .focus-filter-wrapper {

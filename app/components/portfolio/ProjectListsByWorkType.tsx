@@ -18,14 +18,17 @@ export function ProjectListsByWorkType ({ projectList }: Props): JSX.Element {
 
   return (
     <>
-      {workTypes.map((workType, index) => (
-        <div className="project-list-wrapper" key={index}>
-          <ProjectList 
-            title={MSG_WORK_HISTORY_TYPE[workType]} 
-            projects={projectList.filter(project => project.workType === workType)}
-          />
-        </div>
-      ))}
+      {workTypes.map((workType, index) => {
+        const projects = projectList.filter(project => project.workType === workType);
+        return projects?.length ? (
+          <div className="project-list-wrapper" key={index}>
+            <ProjectList 
+              title={MSG_WORK_HISTORY_TYPE[workType]} 
+              projects={projects}
+            />
+          </div>
+        ) : <React.Fragment key={index}></React.Fragment>;
+      })}
       
       <style jsx>{`
         @media(min-width:${breakpointMobile}) {

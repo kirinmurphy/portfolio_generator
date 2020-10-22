@@ -2,7 +2,7 @@ import React from 'react';
 
 import { ProjectSummaryProps } from '../types/project';
 
-import { ProjectWorkSummary } from '../project_item/ProjectWorkSummary';
+import { projectSummaryBreakpointMid, ProjectWorkSummary } from '../project_item/ProjectWorkSummary';
 import { breakpointMobile } from '../../portfolioData/cssVariables';
 
 interface Props {
@@ -24,11 +24,16 @@ export function ProjectList ({ projects, title }: Props): JSX.Element {
       ))}
 
       <style jsx>{`
+        @media screen {
+          header {
+            position: -webkit-sticky; /* Safari */
+            position: sticky;
+            top: 0;
+            z-index:var(--zindex-sticky-header);
+          }
+        }
+
         header {
-          position: -webkit-sticky; /* Safari */
-          position: sticky;
-          top: 0;
-          z-index:var(--zindex-sticky-header);
           padding-bottom:.25rem; 
           border-bottom:1px solid #bbb;
           background: var(--page-bgColor);
@@ -50,8 +55,21 @@ export function ProjectList ({ projects, title }: Props): JSX.Element {
           display:none; 
         }
 
+        @media screen and (max-width:${projectSummaryBreakpointMid - 1}px) {
+          article {
+            padding-bottom:1rem;
+          }
 
-        @media(max-width:${breakpointMobile}) {
+          article:first-of-type {
+            padding-top:1rem ;
+          }          
+
+          article:not(:last-of-type) {
+            border:none;
+          }
+        }
+
+        @media screen and (max-width:${breakpointMobile}) {
           header,
           article {
             padding-left:var(--gutter-page-section);
@@ -63,10 +81,6 @@ export function ProjectList ({ projects, title }: Props): JSX.Element {
             border-bottom:0;
             background:#eee;
           }
-        }
-
-        @media(max-width:470px) {
-          /* margin-top:2.6rem; */
         }
       `}</style>
     </>

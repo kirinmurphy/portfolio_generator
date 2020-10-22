@@ -35,9 +35,14 @@ export const cssProjectDetail = css`
     font-size:var(--fontSize-title-medium); 
   }
 
-  .project-meta {
+  .project-details {
     margin-bottom:.5rem;
   }
+
+  .description :global(em) {
+    display:inline-block;
+    font-style:normal;
+}
 
   .description :global(p:not(:last-of-type)) {
     margin-bottom:1rem;

@@ -17,7 +17,7 @@ export function formatAndJoinProjectData (allProjects: LooseObject): ProjectsObj
       parentProjectId 
     } = project;
 
-    if ( marquee?.type === 'iframe' ) { marquee.iframeUrl = url; }
+    if ( marquee?.type === 'iframe' && !marquee.iframeUrl ) { marquee.iframeUrl = url; }
 
     return { 
       ...project,

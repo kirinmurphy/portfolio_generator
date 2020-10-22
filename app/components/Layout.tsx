@@ -22,6 +22,12 @@ export function Layout ({ children }: Props): JSX.Element {
       <div className="body-wrap">
         {children}
       </div>  
+
+      <style jsx>{`
+        .body-wrap {
+          min-width:320px;
+        }
+      `}</style>
     </>
   );
 }

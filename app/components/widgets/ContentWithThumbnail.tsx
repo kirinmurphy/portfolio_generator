@@ -34,7 +34,7 @@ export function ContentWithThumbnail ({ children, thumb }: Props): JSX.Element {
           }
 
           .thumb {
-            flex: 0 0 220px;
+            flex: 0 0 240px;
             margin-right:1.5rem; 
           }
 

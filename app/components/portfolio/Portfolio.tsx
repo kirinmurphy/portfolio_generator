@@ -55,7 +55,7 @@ export function Portfolio ({ portfolioData }: Props): JSX.Element {
         }
 
         #projects {
-          padding: 1rem 0 2rem 0;
+          padding: 1rem 0;
         }
 
         #page-footer {

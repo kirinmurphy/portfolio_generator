@@ -31,7 +31,7 @@ export const cssPorfolioPrintView = css.global`
     }
 
     #portfolio-intro .introduction {
-      font-size:var(--fontSize-base) !important;
+      font-size:var(--fontSize-small) !important;
     }
 
     #portfolio-intro p:not(:last-of-type) {
@@ -43,7 +43,7 @@ export const cssPorfolioPrintView = css.global`
     }
 
     .project-list-wrapper:not(:last-of-type) {
-      margin-bottom:.75rem !important;
+      margin-bottom:1.5rem !important;
     }
 
     .project-list-wrapper > header {
@@ -56,7 +56,7 @@ export const cssPorfolioPrintView = css.global`
     }
 
     .project-work-summary {
-      padding:.3rem 0 !important; 
+      padding:.5rem 0 .75rem 0 !important; 
     }
 
     .project-work-summary .thumb {
@@ -69,6 +69,22 @@ export const cssPorfolioPrintView = css.global`
 
     .project-work-summary h3 .link {
       font-size: var(--fontSize-small) !important;  
+    }
+
+    .project-work-summary .marquee {
+      display:none;
+    }
+
+    .project-work-summary .summary-content {
+      display:flex;
+      justify-content: space-between;
+    }
+
+    .project-work-summary .languages {
+      flex:0 0 200px;
+      margin-left:20px;
+      padding-top: 0 !important;
+      transform:translateY(-1px);
     }
 
     .text__small,

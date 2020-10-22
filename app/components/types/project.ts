@@ -42,6 +42,7 @@ export interface ProjectHighlightsProps {
 export interface ProjectSummaryProps {
   id: ProjectIdType;
   name: ProjectName;
+  marquee: MultimediaizerProps;
   timeframe: TimeframeProps;
   description: Description;
   thumb: string;

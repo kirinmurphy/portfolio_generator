@@ -15,7 +15,8 @@ import {
   faSquareRootAlt,
   faChevronCircleDown,
   faDesktop,
-  faFilePdf
+  faFilePdf,
+  faExternalLinkAlt
 } from "@fortawesome/free-solid-svg-icons";
 
 import { 
@@ -44,5 +45,6 @@ library.add(
   faChevronCircleDown,
   faNpm,
   faDesktop,
-  faFilePdf
+  faFilePdf,
+  faExternalLinkAlt
 );
